@@ -25,6 +25,9 @@ gem 'jquery-rails'
 gem "bootstrap_form", "~> 4.0"
 gem 'trestle'
 gem 'trestle-auth'
+# gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', require: 'dotenv/rails-now'
+# gem 'gem-that-requires-env-variables'
 # gem "google-cloud-storage", "~> 1.8", require: false
 # gem 'sendinblue'
 # gem 'sidekiq'
@@ -69,3 +72,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1.4'
