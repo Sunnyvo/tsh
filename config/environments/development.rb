@@ -33,25 +33,15 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  # ActionMailer::Base.smtp_settings = {
-  #   :user_name => 'apikey',
-  #   :password => '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',
-  #   :domain => 'localhost',
-  #   :address => 'smtp.sendgrid.net',
-  #   :port => 587,
-  #   :authentication => :plain,
-  #   :enable_starttls_auto => true
-  # }
-
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-    :user_name => 'votanphu.2101@gmail.com',
-    :password => '5Aa6jfZ9nyIgxQs3',
+    :user_name => ENV['LOGIN_MAIL_SERVICE'],
+    :password => ENV['PASSWORD_MAIL_SERVICE'],
     :domain => 'localhost',
-    :address => 'smtp-relay.sendinblue.com',
+    :address => ENV['MAIL_SERVICE_SMTP'],
     :port => 587,
     :authentication => 'login',
     :enable_starttls_auto => true
