@@ -25,7 +25,11 @@ gem 'jquery-rails'
 gem "bootstrap_form", "~> 4.0"
 gem 'trestle'
 gem 'trestle-auth'
-gem "google-cloud-storage", "~> 1.8", require: false
+# gem "google-cloud-storage", "~> 1.8", require: false
+# gem 'sendinblue'
+# gem 'sidekiq'
+# gem 'sinatra', require: false
+# gem 'redis-namespace'
 # gem 'active_pdftk'
 # gem 'simplecov', :require => false, :group => :test
 # gem 'carrierwave', '~> 2.0'

@@ -12,19 +12,21 @@ class UserMailer < ApplicationMailer
     return if email_template.blank?
     email_template.html_content.gsub! '{{customer_first_name}}', @customer_first_name
     # if numerology.image.attached?
-    numerology.testpdf
+    # numerology.testpdf
       # attachments['tsh_rutgon.pdf'] = numerology.demo.download
     # end
-    # attachments['tsh_rutgon.pdf'] = File.read("#{Rails.root}/app/data/out.pdf")
+    attachments['tsh_rutgon.pdf'] = File.read("#{Rails.root}/app/data/out.pdf")
     # attachments['tsh_rutgon.pdf'] = numerology.testpdf.to_pdf
       # encoded_content = File.read("#{Rails.root}/app/data/out.pdf")
     # attachments['tsh_rutgon.pdf'] = {:mime_type => 'application/x-gzip',
       # :encoding => 'SpecialEncoding',
       # :content => encoded_content }
 
-    mixed = mail(to: @customer_email, body: email_template.html_content,
+      mixed = mail(to: @customer_email,
+      subject: "Bạn đã đăng ký thành công",
+      body: email_template.html_content,
       content_type: 'text/html',
-      subject: "Bạn đã đăng ký thành công bài demo rút gọn",
+      # name: 'text/html',
       template_path: 'admin',
       template_name: 'send_demo_tsh')
     # mixed = mail( to: @customer_email.email,
@@ -36,7 +38,7 @@ class UserMailer < ApplicationMailer
     mixed.content_type 'multipart/mixed'
     mixed.header['content-type'].parameters[:boundary] = mixed.body.boundary
 
-    # Set Content-Disposition to nil to remove it - fixes iOS attachment viewing
+    # # Set Content-Disposition to nil to remove it - fixes iOS attachment viewing
     mixed.content_disposition = nil
 
   end

@@ -18,7 +18,7 @@ class PdfToPdfService
   def perform
     create_content_file
     merge_content_with_template
-    true
+    # true
   rescue StandardError => e
     Rails.logger.error e.message
     false
@@ -57,8 +57,9 @@ class PdfToPdfService
     template_pdf.pages.each_with_index do |page, page_idx|
       page << content_pages[page_idx]
     end
-    template_pdf.save out_file
-    # template_pdf
+    # template_pdf.save out_file
+    template_pdf
+    puts template_pdf
   end
 
   def content_file
