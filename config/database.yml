@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: tsh_production
-  username: tsh
+  username: deploy
   password: <%= ENV['TSH_DATABASE_PASSWORD'] %>
