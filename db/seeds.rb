@@ -57,10 +57,10 @@ puts "Init #{EmailTemplate.count} email templates data => done"
 
 numerologies_attributes = [
   {
-    name: 'vo tan phu', email: 'votanphu.2101@gmail.com', day_of_birth: "21/01/1992", user_id: user.id
+    name: 'vo tan phu', email: 'votanphu.2101@gmail.com', day_of_birth: "21/01/1992", phone: "0705736679", user_id: user.id
   },
   {
-    name: 'ho nhat thai', email: 'honhatthai19694@gmail.com', day_of_birth: "19/06/1994", user_id: user.id
+    name: 'ho nhat thai', email: 'honhatthai19694@gmail.com', day_of_birth: "19/06/1994", phone: "0705736679", user_id: user.id
   }
 
 ]
