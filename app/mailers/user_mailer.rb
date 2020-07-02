@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
     return if email_template.blank?
     email_template.html_content.gsub! '{{customer_first_name}}', @customer_first_name
     # if numerology.image.attached?
-    # numerology.testpdf
+    numerology.testpdf
       # attachments['tsh_rutgon.pdf'] = numerology.demo.download
     # end
     attachments['tsh_rutgon.pdf'] = File.read("#{Rails.root}/app/data/out.pdf")
