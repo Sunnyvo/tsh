@@ -4,9 +4,9 @@ class UserMailer < ApplicationMailer
     puts options
     # @customer_email = options[:email].to_s
     # @customer_name = options[:name].to_s
-    @customer_email = "votanphu.2101@gmail.com"
-    @customer_first_name = "Võ Tấn Phú"
     numerology = Numerology.find_by_id(options[:id])
+    @customer_email = numerology.email
+    @customer_first_name = numerology.name
     # Get email template
     email_template = EmailTemplate.send_demo
     return if email_template.blank?
