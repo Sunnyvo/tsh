@@ -1,0 +1,40 @@
+<header class="intro">
+    <div class="intro-body ">
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-2" style="color: white; position: absolute; top: 30%;">
+                    <h1 class="brand-heading">Giải mã cuộc đời</h1>
+                    <p class="intro-text"><b>Đi tìm “các mảnh ghép hoàn hảo” thông qua thần số học</b></p>
+                    <%= link_to 'Giải Mã Ngay', new_numerology_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn-lg'}  %>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header  text-center">
+                <h4 class="modal-title w-100" id="myModalLabel">Giải Mã Thần Số học</h4>
+                <button type="button" class="close" data-dismiss="modal" style="margin-right: 10px;">x</button>
+                </div>
+                <div class="modal-body ">
+                <%= bootstrap_form_for(@numerology) do |f| %>
+                    <%= f.text_field :name, :required => true %>
+                    <%= f.text_field :phone, :required => true%>
+                    <%= f.email_field :email, :required => true%>
+                    <%= f.text_field :day_of_birth, :required => true, class: "datetimepicker", "data-provide": 'datepicker'%>
+                    <div class="text-center">
+                        <%= f.submit "Đăng ký", class: 'btn btn-primary btn-lg' %>
+                    </div>
+                    <%# <div class="form-group d-flex-2"> %>
+                    <%# <%= render "devise/shared/links" %>
+                    <%# </div> %>
+                <% end %>
+                </div>
+
+
+        </div>
+    </div>
+</div>

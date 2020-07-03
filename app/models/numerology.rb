@@ -575,9 +575,6 @@ class Numerology < ApplicationRecord
       ],
       [
         # page 27 tạm thời không có nội dung nên truyền vào mảng rỗn2
-      ],
-      [
-        [:text_box, "Sunny Vo", at: [200, 748], size: 20]
       ]
     ]
 

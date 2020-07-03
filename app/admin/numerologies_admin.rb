@@ -41,7 +41,7 @@ Trestle.resource(:numerologies) do
     # Organize fields into tabs and sidebars
     tab :numerology do
       text_field :name
-      datetime_field :day_of_birth
+      date_field :day_of_birth
       text_field :email
       text_field :phone
       text_area :desire

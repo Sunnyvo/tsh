@@ -1,0 +1,20 @@
+ <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+  <h4 class="modal-title" id="myModalLabel">Nhận Bài Rút Gọn Giải Mã Thần Số học</h4>
+  <button type="button" class="close" data-dismiss="modal" style="margin-left: 10px; margin-top:10px">x</button>
+</div>
+<div class="modal-body">
+ <%= bootstrap_form_for(@numerology) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :phone %>
+    <%= f.email_field :email %>
+    <%= f.date_field :day_of_birth%>
+    <%= f.submit "Đăng ký" %>
+    <%# <div class="form-group d-flex-2"> %>
+      <%# <%= render "devise/shared/links" %>
+    <%# </div> %>
+  <% end %>
+</div>
