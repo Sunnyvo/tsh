@@ -30,6 +30,7 @@ Trestle.resource(:numerologies) do
     actions do |toolbar, numerology, admin|
       toolbar.edit if admin && admin.actions.include?(:edit)
       toolbar.delete if admin && admin.actions.include?(:destroy)
+      toolbar.link 'Tải file', numerology, action: :download_pdf, method: :get, style: :info, icon: "fa fa-download"
       toolbar.link 'Gửi email', numerology, action: :send_demo_tsh, method: :get, style: :primary, icon: "fa fa-square-o"  if (numerology.sent_mail == false)
       toolbar.link 'Gửi email', numerology, action: :send_demo_tsh, method: :get, style: :primary, icon: "fa fa-check"  if (numerology.sent_mail == true)
     end
@@ -60,24 +61,26 @@ Trestle.resource(:numerologies) do
 
   controller do
     def send_demo_tsh
-      puts "hello:"
-      # puts params
       numerology = Numerology.find_by_id(params["id"])
-      puts numerology
       numerology.update!(sent_mail: true)
-      # file = "#{Rails.root}/app/data/out.pdf"
-      # send_file(file, disposition: 'attachment',type: "application/pdf")
       UserMailer.send_demo(email: numerology.email,
       name: numerology.name,
       id: numerology.id).deliver_later
       flash[:message] = "bạn đã gửi email cho khách hàng thành công"
       redirect_to numerologies_admin_index_path
     end
+
+    def download_pdf
+      numerology = Numerology.find_by_id(params["id"])
+      numerology.download_pdf_format
+      file = "#{Rails.root}/app/data/out.pdf"
+      send_file(file, disposition: 'attachment',type: "application/pdf")
+    end
   end
 
   routes do
     get :send_demo_tsh, on: :member
-    get :send_full, on: :member
+    get :download_pdf, on: :member
   end
 
   params do |params|

@@ -54,4 +54,19 @@ module Suitable
   def value_cha
     return {"a" => 1, "j"  => 1, "s" => 1, "b" => 2, "k" => 2, "t" => 2, "c" => 3, "l" => 3, "u" => 3, "d" => 4, "m" => 4, "v" => 4, "e" => 5, "n" => 5, "w" => 5, "f" => 6, "o" => 6, "x" => 6, "g" => 7, "p" => 7, "y" => 7, "h" => 8, "q" => 8, "z" => 8,"i" => 9,"r" => 9 }
   end
+
+  def value_day_birth_color
+    return {
+      "1" => "Màu vàng các loại, bao gồm cả cam và nâu vàng, hổ phách, kim cương, topaz",
+      "2" => "Màu green, kem và trắng, ngọc trai, đá mặt trăng, ngọc bích, ngọc mắt mèo",
+      "3" => "Màu tím, thạch anh tím",
+      "4" => "Màu xám, saphia",
+      "5" => "Màu sáng, lấp lánh; kim cương, đá lấp lánh",
+      "6" => "Màu xanh blue, ngọc lục bảo, ngọc lam, đá màu xanh (đã kiểm tra, ngọc lục bảo vẫn hợp nhé)",
+      "7" => "Màu xám bồ câu, đá mặt trăng, ngọc trai, ngọc mắt mèo",
+      "8" => "Màu xám đậm, lam đậm, tía, đen; các loại đá màu sậm: thạch anh tím, rubi xỉn màu, ngọc trai
+      đen, kim cương đen, shapphia sẫm",
+      "9" => "Màu hồng, đỏ, ruby, đá màu đỏ",
+      }
+  end
 end

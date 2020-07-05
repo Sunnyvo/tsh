@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_scope :user do
     get "/admin/" => "devise/sessions#new"
+    get "/admin/" => "devise/sessions#destroy"
   end
 
   root to: "pages#index"
