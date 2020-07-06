@@ -148,9 +148,9 @@ class Numerology < ApplicationRecord
 
   #pytago
   def pytago_arrow
-    d1 = d2 = d3 = d4 = d5 = d6 = d7 = d8 = d9 = ""
     chs_life_number = day_of_birth.day.to_s + day_of_birth.month.to_s + day_of_birth.year.to_s
     arr_pytago = chs_life_number.split("")
+    arr_pytago = arr_pytago - ["0"]
     array_number = ["","","","","","","","",""]
     arr_pytago.each do |p|
       array_number[p.to_i - 1] += "#{p}"

@@ -62,7 +62,7 @@ module Suitable
       "3" => "Màu tím, thạch anh tím",
       "4" => "Màu xám, saphia",
       "5" => "Màu sáng, lấp lánh; kim cương, đá lấp lánh",
-      "6" => "Màu xanh blue, ngọc lục bảo, ngọc lam, đá màu xanh (đã kiểm tra, ngọc lục bảo vẫn hợp nhé)",
+      "6" => "Màu xanh blue, ngọc lục bảo, ngọc lam, đá màu xanh",
       "7" => "Màu xám bồ câu, đá mặt trăng, ngọc trai, ngọc mắt mèo",
       "8" => "Màu xám đậm, lam đậm, tía, đen; các loại đá màu sậm: thạch anh tím, rubi xỉn màu, ngọc trai
       đen, kim cương đen, shapphia sẫm",
