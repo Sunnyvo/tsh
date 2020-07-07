@@ -2,7 +2,6 @@ class Numerology < ApplicationRecord
   has_one_attached :demo
   belongs_to :user
   include Suitable
-
   #step 1 nguyen am dau tien cua tu hoac first name
   def first_vowel_fn_to_num
     return value_cha[first_vowel_fn]
@@ -765,7 +764,7 @@ class Numerology < ApplicationRecord
       [
       [:formatted_text_box,  [ { :text => "#{birth_day_number[0]}" + "/" + "#{birth_day_number[1]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
         ], :at => [128, 393], :width => 45, :height => 100, :align => :center],
-      [:formatted_text_box,  [ { :text => "#{attitude_number[0]}" + "/" + "#{birth_day_number[1]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+      [:formatted_text_box,  [ { :text => "#{attitude_number[0]}" + "/" + "#{attitude_number[1]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
         ], :at => [128, 303], :width => 45, :height => 100, :align => :center],
       [:formatted_text_box,  [ { :text => "#{middle_age_number[0]}" + "/" + "#{middle_age_number[1]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
         ], :at => [401, 303], :width => 45, :height => 100, :align => :center],
