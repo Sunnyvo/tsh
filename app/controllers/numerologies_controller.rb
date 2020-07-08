@@ -18,12 +18,13 @@ class NumerologiesController < ApplicationController
     UserMailer.send_demo(email: @numerology.email,
       name: @numerology.name,
       id: @numerology.id).deliver_later
-      
+
     @numerology.update!(sent_demo: true)
     redirect_back fallback_location: root_path
   end
 
   def numologry_params
-    params.require(:numerology).permit(:name, :email, :phone, :day_of_birth)
+    params.require(:numerology).permit(:name, :email, :phone, :day_of_birth, :name2, :day_of_birth2)
   end
 end
+
