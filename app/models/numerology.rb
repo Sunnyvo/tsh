@@ -694,11 +694,11 @@ def attach_pdf_demo
 
   def crush_info
     cr = Numerology.new(name: name2, day_of_birth: day_of_birth2)
-    [cr.emotion_number, cr.spirit_number[1], cr.fate_number[1], cr.birth_day_number[1], cr.attitude_number[1], cr.life_number[1]]
+    [cr.life_number[1], cr.attitude_number[1], cr.birth_day_number[1], cr.fate_number[1], cr.spirit_number[1], cr.emotion_number]
   end
 
   def your_info
-    [emotion_number, spirit_number[1], fate_number[1], birth_day_number[1], attitude_number[1], life_number[1]]
+    [life_number, attitude_number[1], birth_day_number[1], fate_number[1], spirit_number[1], emotion_number[1]]
   end
 
   def matching_data
