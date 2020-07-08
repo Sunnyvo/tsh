@@ -721,7 +721,7 @@ def attach_pdf_demo
 
       data << [:image, "#{Rails.root}/app/assets/images/heart/1.png", :width => 20,
         :at => [345, (275 + i * 47)]] if hearts_array[i] == "1"
-      data << [:image, "#{Rails.root}/app/assets/images/heart/1.png", :width => 20,
+      data << [:image, "#{Rails.root}/app/assets/images/heart/2.png", :width => 20,
           :at => [345, (275 + i * 47)]] if hearts_array[i] == "-1"
     end
     data
