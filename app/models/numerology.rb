@@ -698,7 +698,7 @@ def attach_pdf_demo
   end
 
   def your_info
-    [life_number, attitude_number[1], birth_day_number[1], fate_number[1], spirit_number[1], emotion_number[1]]
+    [life_number[1], attitude_number[1], birth_day_number[1], fate_number[1], spirit_number[1], emotion_number]
   end
 
   def matching_data
