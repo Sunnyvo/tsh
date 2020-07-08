@@ -21,18 +21,18 @@ Trestle.resource(:numerologies) do
     #   status_tag(icon("fa fa-square-o"), :success) if (numerology.name == "vo tan phu")
     # end
 
-    # column :sent_full, align: :center do |numerology|
-    #   status_tag(icon("fa fa-check"), :success) if (numerology.name != "vo tan phu")
-    # end
+    column :name2, header: "Crush", align: :center
+    column :day_of_birth2, header: "Ngày sinh crush", align: :center
     column :updated_at, header: "Cập nhật", align: :center
     column :created_at, header: "Ngày tạo", align: :center
 
     actions do |toolbar, numerology, admin|
       toolbar.edit if admin && admin.actions.include?(:edit)
       toolbar.delete if admin && admin.actions.include?(:destroy)
-      toolbar.link 'Tải file', numerology, action: :download_pdf, method: :get, style: :info, icon: "fa fa-download"
-      toolbar.link 'Gửi email', numerology, action: :send_demo_tsh, method: :get, style: :primary, icon: "fa fa-square-o"  if (numerology.sent_mail == false)
-      toolbar.link 'Gửi email', numerology, action: :send_demo_tsh, method: :get, style: :primary, icon: "fa fa-check"  if (numerology.sent_mail == true)
+      toolbar.link 'Tải demo', numerology, action: :download_demo_pdf, method: :get, style: :info, icon: "fa fa-cloud-download"
+      toolbar.link 'Tải full', numerology, action: :download_full_pdf, method: :get, style: :info, icon: "fa fa-download"
+      toolbar.link 'Gửi demo', numerology, action: :send_demo_tsh, method: :get, style: :primary, icon: " #{numerology.sent_demo == false ? "fa fa-square-o" : "fa fa-check" }"
+      toolbar.link 'Gửi full', numerology, action: :send_full_tsh, method: :get, style: :primary, icon: " #{numerology.sent_full == false ? "fa fa-square-o" : "fa fa-check" }"
     end
     # column :address
     # actions
@@ -41,8 +41,10 @@ Trestle.resource(:numerologies) do
   form do
     # Organize fields into tabs and sidebars
     tab :numerology do
-      text_field :name
+      text_field :name, header: "Tên bạn"
       date_field :day_of_birth
+      text_field :name2
+      date_field :day_of_birth2
       text_field :email
       text_field :phone
       text_area :desire
@@ -62,28 +64,47 @@ Trestle.resource(:numerologies) do
   controller do
     def send_demo_tsh
       numerology = Numerology.find_by_id(params["id"])
-      numerology.update!(sent_mail: true)
+      numerology.update!(sent_demo: true)
       UserMailer.send_demo(email: numerology.email,
       name: numerology.name,
       id: numerology.id).deliver_later
-      flash[:message] = "bạn đã gửi email cho khách hàng thành công"
+      flash[:message] = "bạn đã gửi bài demo cho khách hàng thành công"
       redirect_to numerologies_admin_index_path
     end
 
-    def download_pdf
+    def send_full_tsh
       numerology = Numerology.find_by_id(params["id"])
-      numerology.download_pdf_format
-      file = "#{Rails.root}/app/data/out.pdf"
+      numerology.update!(sent_full: true)
+      UserMailer.send_full(email: numerology.email,
+      name: numerology.name,
+      id: numerology.id).deliver_later
+      flash[:message] = "bạn đã gửi bài full cho khách hàng thành công"
+      redirect_to numerologies_admin_index_path
+    end
+
+    def download_demo_pdf
+      numerology = Numerology.find_by_id(params["id"])
+      numerology.attach_pdf_demo
+      file = "#{Rails.root}/app/data/demo.pdf"
+      send_file(file, disposition: 'attachment',type: "application/pdf")
+    end
+
+    def download_full_pdf
+      numerology = Numerology.find_by_id(params["id"])
+      numerology.attach_pdf_full
+      file = "#{Rails.root}/app/data/full.pdf"
       send_file(file, disposition: 'attachment',type: "application/pdf")
     end
   end
 
   routes do
     get :send_demo_tsh, on: :member
-    get :download_pdf, on: :member
+    get :download_demo_pdf, on: :member
+    get :download_full_pdf, on: :member
+    get :send_full_tsh, on: :member
   end
 
   params do |params|
-    params.require(:numerology).permit(:name, :day_of_birth, :email, :phone, :desire, :user_id)
+    params.require(:numerology).permit(:name, :day_of_birth, :email, :phone, :desire, :user_id, :name2, :day_of_birth2)
   end
 end

@@ -5,16 +5,21 @@ class User < ApplicationRecord
   # belongs_to :supplier
   has_many :numerologies
   has_many :email_templates
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   CATEGORY = [
     { name: 'General', value: 'GENERAL' },
-    { name: 'bản rút gọn', value: 'SEND_DEMO' }
+    { name: 'bản rút gọn', value: 'SEND_DEMO' },
+    { name: 'bản đầy đủ', value: 'SEND_FULL' }
   ]
 
   def self.send_demo
     EmailTemplate.where(category: 'SEND_DEMO').first
+  end
+
+  def self.send_full
+    EmailTemplate.where(category: 'SEND_FULL').first
   end
 end

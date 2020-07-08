@@ -29,7 +29,7 @@ user = User.where(email: 'votanphu.2101@gmail.com').first
 email_templates_attributes = [
   {
     name: 'Đăng ký nhận bản rút gọn ',
-    subject: 'Chúc mừng bạn đã nhânj được bản thần số học rút gọn',
+    subject: 'Chúc mừng bạn đã nhận được bản thần số học rút gọn',
     plain_content: "
       Xin chào {{customer_first_name}},\n\r\n\r
       Bạn đã nhận được một quà tặng vô cùng ý nghĩa có thể giúp bạn có những bước đi đỡ vất vả hơn trong cuộc sống.
@@ -45,7 +45,27 @@ email_templates_attributes = [
     category: 'SEND_DEMO',
     active: true,
     user_id: user[:id]
-  }]
+  },
+  {
+    name: 'Đăng ký nhận bản đầy đủ ',
+    subject: 'Chúc mừng bạn đã nhận được bản thần số học đầy đủ',
+    plain_content: "
+      Xin chào {{customer_first_name}},\n\r\n\r
+      Bạn đã nhận được một quà tặng vô cùng ý nghĩa có thể giúp bạn có những bước đi đỡ vất vả hơn trong cuộc sống.
+      Thanks,\n\r
+      Thần số học - Giải mã cuộc đời\n\r
+    ",
+    html_content: "
+    Xin chào {{customer_first_name}},\n\r\n\r
+    Bạn đã nhận được một quà tặng vô cùng ý nghĩa có thể giúp bạn có những bước đi đỡ vất vả hơn trong cuộc sống.
+    Thanks,\n\r
+    Thần số học - Giải mã cuộc đời\n\r
+    ",
+    category: 'SEND_FULL',
+    active: true,
+    user_id: user[:id]
+  }
+]
 
 
 email_templates_attributes.each do |email_template_attributes|
@@ -57,7 +77,7 @@ puts "Init #{EmailTemplate.count} email templates data => done"
 
 numerologies_attributes = [
   {
-    name: 'vo tan phu', email: 'votanphu.2101@gmail.com', day_of_birth: "21/01/1992", phone: "0705736679", user_id: user.id
+    name: 'vo tan phu', email: 'votanphu.2101@gmail.com', day_of_birth: "21/01/1992", phone: "0705736679", user_id: user.id, name2: "pham chinh hien", day_of_birth2: "05/08/2001"
   },
   {
     name: 'ho nhat thai', email: 'honhatthai19694@gmail.com', day_of_birth: "19/06/1994", phone: "0705736679", user_id: user.id
