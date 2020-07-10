@@ -17,7 +17,10 @@ class Numerology < ApplicationRecord
 
   #step 2 tong nguyen am cua tu hoac first name
   def sum_vowels_fn
-    return sum_vowels(name.split(" ").last)
+    first_name = name.split(" ").last
+    return "" if vowels(first_name).count == 1
+    sum_v = sum_vowels(first_name)
+    return sum_v[1]
   end
 
   def sum_vowels(element)
@@ -41,7 +44,10 @@ class Numerology < ApplicationRecord
 
   #step 4 tong phu am cua tu hoac first name
   def sum_consonants_fn
-    return sum_consonants(name.split(" ").last)
+    first_name = name.split(" ").last
+    return "" if consonants(first_name).count == 1
+    sum_c = sum_consonants(first_name)
+    return sum_c[1]
   end
 
   def sum_consonants(element)
@@ -315,7 +321,7 @@ class Numerology < ApplicationRecord
   end
 
   def year_number
-    sum_characters(day_of_birth.day.to_i)
+    sum_characters(day_of_birth.year.to_i)
   end
 
   def sum_characters(number)
@@ -527,11 +533,11 @@ def attach_pdf_demo
           ], :at => [100, 625], :width => 400, :height => 100, :align => :center],
         [:formatted_text_box,  [{ :text => "#{first_vowel_fn_to_num}" + "    ", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
           ], :at => [107, 401], :width => 400, :height => 100],
-        [:formatted_text_box,  [{ :text => " " + "#{sum_vowels_fn[1]}" + "    ", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+        [:formatted_text_box,  [{ :text => " " + "#{sum_vowels_fn}" + "    ", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
           ], :at => [196, 401], :width => 400, :height => 100],
         [:formatted_text_box,  [{ :text => " " + "#{first_cha_first_name_to_num}" + "    ", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
           ], :at => [285, 401], :width => 400, :height => 100],
-        [:formatted_text_box,  [{ :text => " " + "#{sum_consonants_fn[1]}" + "    ", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+        [:formatted_text_box,  [{ :text => " " + "#{sum_consonants_fn}" + "    ", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
           ], :at => [374, 401], :width => 400, :height => 100],
         [:formatted_text_box,  [{ :text => " " + "#{sum_cons_vowels_fn[1]}" + "    ", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
           ], :at => [461, 401], :width => 400, :height => 100],
@@ -636,13 +642,21 @@ def attach_pdf_demo
         [:formatted_text_box,  [ { :text => "#{year_number[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [520, 150], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "#{m1}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
-          ], :at => [175, 215], :width => 400, :height => 100],
+          ], :at => [175, 255], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "#{m2[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
-          ], :at => [410, 215], :width => 400, :height => 100],
+          ], :at => [410, 255], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - middle_age_number[1].to_i}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+          ], :at => [150, 215], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - middle_age_number[1].to_i + 9 }" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+          ], :at => [385, 215], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "#{m3[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
-          ], :at => [290, 300], :width => 400, :height => 100],
+          ], :at => [290, 310], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - middle_age_number[1].to_i + 18 }" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+          ], :at => [267, 270], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "#{m4[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [290, 460], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - middle_age_number[1].to_i + 27 }" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+          ], :at => [267, 415], :width => 400, :height => 100],
 
       ],
       [

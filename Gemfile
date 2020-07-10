@@ -29,6 +29,7 @@ gem 'frontend-generators'
 gem 'momentjs-rails'
 # gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'trestle-tinymce'
 # gem 'dotenv-rails', groups: [:development, :test]
 # gem 'dotenv-rails', require: 'dotenv/rails-now'
 # gem 'gem-that-requires-env-variables'

@@ -222,6 +222,8 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    tinymce-rails (5.4.1)
+      railties (>= 3.1.1)
     trestle (0.9.3)
       activemodel (>= 4.2.0)
       kaminari (>= 1.1.0)
@@ -229,6 +231,9 @@ GEM
       sprockets-rails (>= 2.0.0)
     trestle-auth (0.4.0)
       bcrypt (~> 3.1.7)
+      trestle (~> 0.9.0)
+    trestle-tinymce (0.3.0)
+      tinymce-rails (~> 5.1)
       trestle (~> 0.9.0)
     ttfunk (1.6.2.1)
     turbolinks (5.2.1)
@@ -286,6 +291,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   trestle
   trestle-auth
+  trestle-tinymce
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
