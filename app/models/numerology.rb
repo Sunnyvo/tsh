@@ -693,10 +693,14 @@ def attach_pdf_demo
     arr_ur_nums = [emotion_number, spirit_number[1], fate_number[1], birth_day_number[1], attitude_number[1], life_number[1]]
     arr_cr_nums = [cr.emotion_number, cr.spirit_number[1], cr.fate_number[1], cr.birth_day_number[1], cr.attitude_number[1], cr.life_number[1]]
     arr_ur_nums.each_with_index do |n, i|
+      # puts "u:#{n}"
+      # puts "cr:#{arr_cr_nums[i]}"
+      # puts "i:#{i}"
       hearts_array << "2" if natural_suitable[n].include?(arr_cr_nums[i])
       hearts_array << "1" if suitable[n].include?(arr_cr_nums[i])
-      hearts_array << "0" if unsuitable[n].include?(arr_cr_nums[i])
-      hearts_array << "-1" if neutral[n].include?(arr_cr_nums[i])
+      hearts_array << "-1" if unsuitable[n].include?(arr_cr_nums[i])
+      hearts_array << "0" if neutral[n].include?(arr_cr_nums[i])
+      # puts "hearts_array:#{hearts_array}"
     end
     return hearts_array
   end
