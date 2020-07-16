@@ -193,6 +193,9 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    roo (2.8.3)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     ruby-rc4 (0.1.5)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -232,6 +235,8 @@ GEM
     trestle-auth (0.4.0)
       bcrypt (~> 3.1.7)
       trestle (~> 0.9.0)
+    trestle-search (0.4.2)
+      trestle (~> 0.9.0, >= 0.9.3)
     trestle-tinymce (0.3.0)
       tinymce-rails (~> 5.1)
       trestle (~> 0.9.0)
@@ -285,12 +290,14 @@ DEPENDENCIES
   prawn
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.1)
+  roo
   sass-rails (>= 6)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   trestle
   trestle-auth
+  trestle-search
   trestle-tinymce
   turbolinks (~> 5)
   tzinfo-data

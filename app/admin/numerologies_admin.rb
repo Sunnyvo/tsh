@@ -1,5 +1,13 @@
 Trestle.resource(:numerologies) do
 
+  search do |query|
+    if query
+      Numerology.where("name ILIKE ?", "%#{query}%")
+    else
+      Numerology.all
+    end
+  end
+
   menu do
     group :custommers_management, priority: :first do
       item :numerologies, icon: "fa fa-file-text-o"
@@ -22,7 +30,7 @@ Trestle.resource(:numerologies) do
     # end
 
     column :name2, header: "Crush", align: :center
-    column :day_of_birth2, header: "Ngày sinh crush", align: :center
+    column :day_of_birth2, header: "Ngày sinh", align: :center
     column :updated_at, header: "Cập nhật", align: :center
     column :created_at, header: "Ngày tạo", align: :center
 
@@ -41,13 +49,13 @@ Trestle.resource(:numerologies) do
   form do
     # Organize fields into tabs and sidebars
     tab :numerology do
-      text_field :name, header: "Tên bạn"
-      date_field :day_of_birth
-      text_field :name2
-      date_field :day_of_birth2
-      text_field :email
-      text_field :phone
-      text_area :desire
+      text_field :name, label: "Tên bạn"
+      date_field :day_of_birth,  label: "Ngày sinh"
+      text_field :name2,  label: "Crush"
+      date_field :day_of_birth2,  label: "Ngày sinh"
+      text_field :email, label: "Email"
+      text_field :phone,  label: "Điện thoại"
+      text_area :desire,  label: "Mong muốn"
       hidden_field :user_id, {:value => current_user.id}
 
     end
@@ -95,6 +103,25 @@ Trestle.resource(:numerologies) do
       file = "#{Rails.root}/app/data/full.pdf"
       send_file(file, disposition: 'attachment',type: "application/pdf")
     end
+
+    def import
+      if params[:file] == nil
+        flash[:error] = "Đã có lỗi trong lúc import vui lòng kiểm tra lại file!"
+        redirect_to numerologies_admin_index_path, notice: "Đã có lỗi trong lúc report vui lòng kiểm tra lại file"
+      else
+        Numerology.import(params[:file])
+        flash[:message] = "Bạn đã import thành công."
+        redirect_to numerologies_admin_index_path, notice: "Bạn đã import thành công."
+      end
+      # begin
+      #   Numerology.import(params[:file])
+      #   flash[:message] = "bạn đã import thành công"
+      #   redirect_to numerologies_admin_index_path, notice: "Numerologies imported."
+      # rescue ActiveRecord::RecordNotFound => e
+      #   flash[:error] = e
+      # end
+    end
+
   end
 
   routes do
@@ -102,6 +129,7 @@ Trestle.resource(:numerologies) do
     get :download_demo_pdf, on: :member
     get :download_full_pdf, on: :member
     get :send_full_tsh, on: :member
+    post :import, on: :collection
   end
 
   params do |params|

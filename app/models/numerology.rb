@@ -1,4 +1,5 @@
 class Numerology < ApplicationRecord
+  before_create :down_case_name
   has_one_attached :demo
   belongs_to :user
   include Suitable
@@ -690,8 +691,8 @@ def attach_pdf_demo
   def matching_love
     cr = Numerology.new(name: name2, day_of_birth: day_of_birth2)
     hearts_array =[]
-    arr_ur_nums = [emotion_number, spirit_number[1], fate_number[1], birth_day_number[1], attitude_number[1], life_number[1]]
-    arr_cr_nums = [cr.emotion_number, cr.spirit_number[1], cr.fate_number[1], cr.birth_day_number[1], cr.attitude_number[1], cr.life_number[1]]
+    arr_ur_nums = [personal_number[1], spirit_number[1], fate_number[1], birth_day_number[1], attitude_number[1], life_number[1]]
+    arr_cr_nums = [cr.personal_number[1], cr.spirit_number[1], cr.fate_number[1], cr.birth_day_number[1], cr.attitude_number[1], cr.life_number[1]]
     arr_ur_nums.each_with_index do |n, i|
       puts "u:#{n}"
       puts "cr:#{arr_cr_nums[i]}"
@@ -744,4 +745,33 @@ def attach_pdf_demo
     end
     data
   end
+
+  def self.import(file)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      numerology = find_by_id(row["id"]) || new
+      numerology.attributes = row.to_hash.slice(*row.to_hash.keys)
+      numerology["user_id"] = User.where(email: "tsh@gmail.com").first.id
+      numerology.save!
+    end
+  end
+
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+      when ".csv" then Roo::CSV.new(file.path)
+      when ".xls" then Roo::Excel.new(file.path)
+      when ".xlsx" then Roo::Excelx.new(file.path)
+      else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+
+  private
+    def down_case_name
+      self.name.downcase!
+      if self.name2 != nil
+        self.name2.downcase!
+      end
+    end
 end

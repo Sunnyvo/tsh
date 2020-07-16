@@ -2,7 +2,7 @@
     <div class="intro-body ">
         <div class="container text-center ">
             <div class="row">
-                <div class="col-md-11" style="color: white; position: absolute; top: 30%;">
+                <div class="col-md-12 brand-section">
                     <h1 class="brand-heading">Giải mã cuộc đời</h1>
                     <p class="intro-text"><b> "Mảnh ghép hoàn hảo” của tôi đang ở đâu ?</b></p>
                     <%= link_to 'Giải Mã Ngay', new_numerology_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-info btn-lg'}  %>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="modal-body ">
                 <%= bootstrap_form_for(@numerology) do |f| %>
-                    <%= f.text_field :name, label: "Họ và tên (Không dấu và viết thường)", :required => true %>
+                    <%= f.text_field :name, label: "Họ và tên (Không dấu)", :required => true %>
                     <%= f.text_field :day_of_birth, label: "Ngày sinh", :required => true, class: "datetimepicker", "data-provide": 'datepicker'%>
                     <%= f.text_field :name2, label: "Họ và tên người ấy" %>
                     <%= f.text_field :day_of_birth2, label: "Ngày sinh người ấy", class: "datetimepicker", "data-provide": 'datepicker'%>
