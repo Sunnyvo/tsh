@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
     attachments['tsh_rutgon.pdf'] = File.read("#{Rails.root}/app/data/demo.pdf")
 
       mixed = mail(to: @customer_email,
-      subject: "Bạn đã đăng ký bản đầy đủ thành công",
+      subject: email_template.subject,
       body: email_template.html_content,
       content_type: 'text/html',
       template_path: 'admin',
@@ -38,7 +38,7 @@ class UserMailer < ApplicationMailer
     attachments["tsh_#{numerology.name.split(" ").join("_")}.pdf"] = File.read("#{Rails.root}/app/data/full.pdf")
 
       mixed = mail(to: @customer_email,
-      subject: "Bạn đã đăng ký bản full thành công",
+      subject: email_template.subject,
       body: email_template.html_content,
       content_type: 'text/html',
       template_path: 'admin',
