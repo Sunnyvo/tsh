@@ -32,6 +32,7 @@ Trestle.resource(:email_templates) do
   form do |email_template|
     tab :post do
       text_field :name
+      text_field :subject
       editor :html_content
       select :category, EmailTemplate.distinct.pluck(:category)
       check_box :active
