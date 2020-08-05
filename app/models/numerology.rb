@@ -240,7 +240,7 @@ class Numerology < ApplicationRecord
 
   # cac moc phat trien cuoc doi
   def m1
-  return attitude_number[1]
+  return attitude_number
   end
 
   def m2
@@ -254,7 +254,7 @@ class Numerology < ApplicationRecord
   end
 
   def m3
-    return sum_characters(m1.to_i + m2[1].to_i)
+    return sum_characters(m1[1].to_i + m2[1].to_i)
   end
 
   def m4
@@ -642,19 +642,19 @@ def attach_pdf_demo
           ], :at => [290, 150], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "#{year_number[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [520, 150], :width => 400, :height => 100],
-        [:formatted_text_box,  [ { :text => "#{m1}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+        [:formatted_text_box,  [ { :text => "#{(m1[0] == "11" || m1[0] == "22" || m1[0] == "10") ? m1[0] : m1[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [175, 255], :width => 400, :height => 100],
-        [:formatted_text_box,  [ { :text => "#{m2[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+        [:formatted_text_box,  [ { :text => "#{(m2[0] == "11" || m2[0] == "22" || m2[0] == "10") ? m2[0] : m2[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [410, 255], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [150, 215], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i + 9 }" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [385, 215], :width => 400, :height => 100],
-        [:formatted_text_box,  [ { :text => "#{m3[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+        [:formatted_text_box,  [ { :text => "#{(m3[0] == "11" || m3[0] == "22" || m3[0] == "10") ? m3[0] : m3[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [290, 310], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i + 18 }" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [267, 270], :width => 400, :height => 100],
-        [:formatted_text_box,  [ { :text => "#{m4[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+        [:formatted_text_box,  [ { :text => "#{(m4[0] == "11" || m4[0] == "22" || m4[0] == "10") ? m4[0] : m4[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [290, 460], :width => 400, :height => 100],
         [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i + 27 }" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [267, 415], :width => 400, :height => 100],
