@@ -688,6 +688,32 @@ def attach_pdf_demo
     testpdftsh = PdfToPdfService.new("#{Rails.root}/app/assets/images/full.pdf", "#{Rails.root}/app/data/full.pdf", data).perform
   end
 
+  # array arrow pytago
+  def paa
+    # 0 to 2 => 147, 258, 369
+    # 3 to 5 => 123, 456, 789
+    # 6 => 159
+    # 7 => 357
+    # -1: missing arrow ; 1: has arrow; 0 no missing either arrow
+    po_arr = [0,0,0,0,0,0,0,0]
+    po_arr [0] = -1 if pytago_arrow[0].blank? && pytago_arrow[3].blank? && pytago_arrow[6].blank?
+    po_arr [0] = 1 if !pytago_arrow[0].blank? && !pytago_arrow[3].blank? && !pytago_arrow[6].blank?
+    po_arr [1] = -1 if pytago_arrow[1].blank? && pytago_arrow[4].blank? && pytago_arrow[7].blank?
+    po_arr [1] = 1 if !pytago_arrow[1].blank? && !pytago_arrow[4].blank? && !pytago_arrow[7].blank?
+    po_arr [2] = -1 if pytago_arrow[2].blank? && pytago_arrow[5].blank? && pytago_arrow[8].blank?
+    po_arr [2] = 1 if !pytago_arrow[2].blank? && !pytago_arrow[5].blank? && !pytago_arrow[8].blank?
+    po_arr [3] = -1 if pytago_arrow[0].blank? && pytago_arrow[1].blank? && pytago_arrow[2].blank?
+    po_arr [3] = 1 if !pytago_arrow[0].blank? && !pytago_arrow[1].blank? && !pytago_arrow[2].blank?
+    po_arr [4] = -1 if !pytago_arrow[3].blank? && pytago_arrow[4].blank? && pytago_arrow[5].blank?
+    po_arr [4] = 1 if !pytago_arrow[3].blank? && !pytago_arrow[4].blank? && !pytago_arrow[5].blank?
+    po_arr [5] = -1 if pytago_arrow[6].blank? && pytago_arrow[7].blank? && pytago_arrow[8].blank?
+    po_arr [5] = 1 if !pytago_arrow[6].blank? && !pytago_arrow[7].blank? && !pytago_arrow[8].blank?
+    po_arr [6] = -1 if pytago_arrow[0].blank? && pytago_arrow[4].blank? && pytago_arrow[8].blank?
+    po_arr [6] = 1 if !pytago_arrow[0].blank? && !pytago_arrow[4].blank? && !pytago_arrow[8].blank?
+    po_arr [7] = -1 if pytago_arrow[2].blank? && pytago_arrow[4].blank? && pytago_arrow[6].blank?
+    po_arr [7] = 1 if !pytago_arrow[2].blank? && !pytago_arrow[4].blank? && !pytago_arrow[6].blank?
+    po_arr
+  end
   def matching_love
     cr = Numerology.new(name: name2, day_of_birth: day_of_birth2)
     hearts_array =[]
