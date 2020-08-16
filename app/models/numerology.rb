@@ -563,28 +563,7 @@ def attach_pdf_demo
         [:formatted_text_box,  [ { :text => "#{name_grath[6]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
           ], :at => [370, 311], :width => 170, :height => 100, :align => :right],
 
-      ],
-      [
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[2]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [3, 571], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[1]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [3, 441], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[0]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [3, 311], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[5]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [212, 571], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[4]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [212, 441], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[3]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [212, 311], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[8]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [370, 571], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[7]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [370, 441], :width => 170, :height => 100, :align => :right],
-        [:formatted_text_box,  [ { :text => "#{pytago_arrow[6]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
-          ], :at => [370, 311], :width => 170, :height => 100, :align => :right],
-
-      ],
+      ], arrows,
       [
         [:formatted_text_box,  [ { :text => "#{emotion_number}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
           ], :at => [263, 560], :width => 400, :height => 400]
@@ -704,7 +683,7 @@ def attach_pdf_demo
     po_arr [2] = 1 if !pytago_arrow[2].blank? && !pytago_arrow[5].blank? && !pytago_arrow[8].blank?
     po_arr [3] = -1 if pytago_arrow[0].blank? && pytago_arrow[1].blank? && pytago_arrow[2].blank?
     po_arr [3] = 1 if !pytago_arrow[0].blank? && !pytago_arrow[1].blank? && !pytago_arrow[2].blank?
-    po_arr [4] = -1 if !pytago_arrow[3].blank? && pytago_arrow[4].blank? && pytago_arrow[5].blank?
+    po_arr [4] = -1 if pytago_arrow[3].blank? && pytago_arrow[4].blank? && pytago_arrow[5].blank?
     po_arr [4] = 1 if !pytago_arrow[3].blank? && !pytago_arrow[4].blank? && !pytago_arrow[5].blank?
     po_arr [5] = -1 if pytago_arrow[6].blank? && pytago_arrow[7].blank? && pytago_arrow[8].blank?
     po_arr [5] = 1 if !pytago_arrow[6].blank? && !pytago_arrow[7].blank? && !pytago_arrow[8].blank?
@@ -714,6 +693,74 @@ def attach_pdf_demo
     po_arr [7] = 1 if !pytago_arrow[2].blank? && !pytago_arrow[4].blank? && !pytago_arrow[6].blank?
     po_arr
   end
+
+  def arrows
+    pytago_array = paa
+    data = []
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[2]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+        ], :at => [3, 571], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[1]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+        ], :at => [3, 441], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[0]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+        ], :at => [3, 311], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[5]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+      ], :at => [212, 571], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[4]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+      ], :at => [212, 441], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[3]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+      ], :at => [212, 311], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[8]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+      ], :at => [370, 571], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[7]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+      ], :at => [370, 441], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[6]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-BlackItalic.ttf")},
+      ], :at => [370, 311], :width => 170, :height => 100, :align => :right]
+
+    # ngang
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png", :width => 400,
+      :at => [100, 470]] if pytago_array[0] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png", :width => 400,
+      :at => [100, 600]] if pytago_array[1] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png", :width => 400,
+      :at => [100, 730]] if pytago_array[2] == 1
+
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-ngang.png", :width => 400,
+      :at => [100, 465]] if pytago_array[0] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-ngang.png", :width => 400,
+      :at => [100, 595]] if pytago_array[1] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-ngang.png", :width => 400,
+      :at => [100, 725]] if pytago_array[2] == -1
+
+    # doc
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-doc.png", :width => 400,
+      :at => [-80, 600]] if pytago_array[3] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-doc.png", :width => 400,
+      :at => [105, 600]] if pytago_array[4] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-doc.png", :width => 400,
+      :at => [280, 600]] if pytago_array[5] == 1
+
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-doc.png", :width => 400,
+      :at => [-80, 600]] if pytago_array[3] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-doc.png", :width => 400,
+      :at => [105, 600]] if pytago_array[4] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-doc.png", :width => 400,
+      :at => [280, 600]] if pytago_array[5] == -1
+
+    # duong cheo len
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-cheo-len.png", :width => 400,
+      :at => [100, 600]] if pytago_array[6] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-cheo-len.png", :width => 400,
+      :at => [100, 600]] if pytago_array[6] == -1
+
+    # duong cheo xuong
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-cheo-xuong.png", :width => 400,
+      :at => [100, 600]] if pytago_array[7] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-cheo-xuong.png", :width => 400,
+      :at => [100, 600]] if pytago_array[7] == -1
+
+    data
+  end
+
   def matching_love
     cr = Numerology.new(name: name2, day_of_birth: day_of_birth2)
     hearts_array =[]
