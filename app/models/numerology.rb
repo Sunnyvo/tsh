@@ -590,19 +590,11 @@ def attach_pdf_demo
           ], :at => [263, 560], :width => 400, :height => 400]
       ],
       [
-        [:formatted_text_box,  [ { :text => "#{personal_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
-          ], :at => [263, 560], :width => 400, :height => 400]
-      ],
-      [
-        [:formatted_text_box,  [ { :text => "#{spirit_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
-          ], :at => [263, 560], :width => 400, :height => 400]
-      ],
-      [
-        [:formatted_text_box,  [ { :text => "#{fate_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
-          ], :at => [263, 560], :width => 400, :height => 400]
-      ],
-      [
         [:formatted_text_box,  [ { :text => "#{birth_day_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
+          ], :at => [263, 560], :width => 400, :height => 400]
+      ],
+      [
+        [:formatted_text_box,  [ { :text => "#{personal_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
           ], :at => [263, 560], :width => 400, :height => 400]
       ],
       [
@@ -610,7 +602,15 @@ def attach_pdf_demo
           ], :at => [263, 560], :width => 400, :height => 400]
       ],
       [
+        [:formatted_text_box,  [ { :text => "#{spirit_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
+          ], :at => [263, 560], :width => 400, :height => 400]
+      ],
+      [
         [:formatted_text_box,  [ { :text => "#{life_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
+          ], :at => [263, 560], :width => 400, :height => 400]
+      ],
+      [
+        [:formatted_text_box,  [ { :text => "#{fate_number[1]}" + "    ", color: "FCFCFC", size: 200, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-Bold.ttf")},
           ], :at => [263, 560], :width => 400, :height => 400]
       ],
       [
