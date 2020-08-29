@@ -2,11 +2,11 @@
 <% content_for(:title, admin.t("titles.index", default: "Listing %{pluralized_model_name}")) %>
 
 <% toolbar(:primary) do |t| %>
-  <%= t.link admin.t("buttons.new", default: "New %{model_name}"), action: :new, icon: "fa fa-plus", class: "btn-new-resource" if admin.actions.include?(:new) %>
   <%= form_tag 'numerologies/import', multipart: true do %>
     <%= file_field_tag "file", style: "margin-left: 20px" %>
     <%= submit_tag("Import", class: "btn btn-primary") %>
   <% end %>
+  <%= t.link admin.t("buttons.new", default: "New %{model_name}"), action: :new, icon: "fa fa-plus", class: "btn-new-resource" if admin.actions.include?(:new) %>
 <% end %>
 
 <% content_for(:utilities) do %>
