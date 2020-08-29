@@ -1,0 +1,51 @@
+<%= render inline: File.read('app/views/pages/index.html') %>
+
+<%= bootstrap_form_for(@numerology) do |f| %>
+    <%= f.hidden_field :name, label: "Họ và tên (Không dấu)", class:"name-h", :required => true %>
+    <%= f.hidden_field :day_of_birth, label: "Ngày sinh",class:"ns-h", :required => true %>
+    <%= f.hidden_field :phone, label: "Điện thoại", class:"phone-h",:required => true%>
+    <%= f.hidden_field :email, label: "Email", class:"email-h", :required => true%>
+    <%= f.hidden_field :from, label: "From", class:"from-h", :required => true%>
+    <div class="text-center">
+        <%= f.submit "", class: 'btn btn-info btn-lg server-s' %>
+    </div>
+    <%# <div class="form-group d-flex-2"> %>
+    <%# <%= render "devise/shared/links" %>
+    <%# </div> %>
+<% end %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    document.addEventListener( "DOMContentLoaded", function(){
+    console.log("hello 1")
+    // $("#BUTTON_TEXT187").click(function(){
+    //     console.log("hello 2")
+    //     $(".name-h").value = $("#FORM_ITEM189 input").value
+    //     $(".ns-h").value = $("#FORM_ITEM257 input").value
+    //     $(".phone-h").value = $("#FORM_ITEM191 input").value
+    //     $(".email-h").value = $("#FORM_ITEM190 input").value
+
+
+    // });
+    $("#FORM_ITEM189 input").change(function() {
+        $(".name-h").val($("#FORM_ITEM189 input").val());
+    });
+
+    $("#FORM_ITEM257 input").change(function() {
+        $(".ns-h").val($("#FORM_ITEM257 input").val());
+    });
+
+    $("#FORM_ITEM191 input").change(function() {
+        $(".phone-h").val($("#FORM_ITEM191 input").val());
+    });
+
+    $("#FORM_ITEM190 input").change(function() {
+        $(".email-h").val($("#FORM_ITEM190 input").val());
+    });
+
+    $("#FORM186 form").submit(function() {
+        console.log("hello 3")
+        $(".from-h").val("docvi")
+        $(".server-s").click()
+    });
+})
+</script>

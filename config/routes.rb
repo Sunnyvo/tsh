@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   root to: "pages#index"
+  get "/doc-vi-bat-ky-ai-qua-nhan-so-hoc/", :to => 'pages#readmind', :as => :readmind
   resources :numerologies
 
 

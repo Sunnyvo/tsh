@@ -19,9 +19,10 @@ users_attributes.each do |user_attributes|
   user = User.new(user_attributes)
   # user.skip_confirmation!
   user.save! if User.where(email: user_attributes[:email]).first.blank?
-end
 
+end
 puts "Init #{users_attributes.count} users data => done"
+
 
 user = User.where(email: 'votanphu.2101@gmail.com').first
 
@@ -64,12 +65,46 @@ email_templates_attributes = [
     category: 'SEND_FULL',
     active: true,
     user_id: user[:id]
+  },
+  {
+    name: 'Đăng ký tham gia khoa hoc doc vi bat ky ai qua nhan so hoc',
+    subject: 'Chúc Mừng Bạn Đã Đăng Ký Thành Công Khóa Học Đoc Vị Bất Kỳ Ai Qua Nhân Số Học ',
+    plain_content: "
+      Xin chào {{customer_first_name}},\n\r\n\r
+      Buổi đào tạo học trực tuyến sẽ được tổ chức qua zoom.
+      Thời gian học vào lúc 19h15 tối các ngày: 16/9, 17/9, 19/9 và 21/9
+      Mọi người hãy tải trước ứng dụng zoom để tham gia các buổi học, link hướng dẫn:
+      https://www.youtube.com/watch?v=Zzuy4cGuUV4
+      Link tham gia lớp học:
+      https://zalo.me/g/wyfxkb210
+
+      Thanks,\n\r
+      Thần số học - Giải mã cuộc đời\n\r
+    ",
+    html_content: "
+    Xin chào {{customer_first_name}},\n\r\n\r
+      Buổi đào tạo học trực tuyến sẽ được tổ chức qua zoom.
+      Thời gian học vào lúc 19h15 tối các ngày: 16/9, 17/9, 19/9 và 21/9
+      Mọi người hãy tải trước ứng dụng zoom để tham gia các buổi học, link hướng dẫn:
+      https://www.youtube.com/watch?v=Zzuy4cGuUV4
+      Link tham gia nhóm học tập trên zalo:
+      https://zalo.me/g/wyfxkb210
+
+      Thanks,\n\r
+      Thần số học - Giải mã cuộc đời\n\r
+    ",
+    category: 'SEND_DOCVI',
+    active: true,
+    user_id: user[:id]
   }
 ]
 
+if EmailTemplate.count == 0
+  email_templates_attributes.each do |email_template_attributes|
+    email_template = EmailTemplate.new(email_template_attributes)
+  email_template.save! if EmailTemplate.where(category: email_template_attributes[:category]).first.blank?
+  end
 
-email_templates_attributes.each do |email_template_attributes|
-  EmailTemplate.create!(email_template_attributes)
 end
 
 puts "Init #{EmailTemplate.count} email templates data => done"
@@ -85,11 +120,13 @@ numerologies_attributes = [
 
 ]
 
-numerologies_attributes.each do |numerologie_attributes|
-  numerology = Numerology.new(numerologie_attributes)
-  # user.skip_confirmation!
-  numerology.save! if Numerology.where(email: numerologie_attributes[:email]).first.blank?
-end
+if Numerology.count == 0
+  numerologies_attributes.each do |numerologie_attributes|
+    numerology = Numerology.new(numerologie_attributes)
+    # user.skip_confirmation!
+    numerology.save! if Numerology.where(email: numerologie_attributes[:email]).first.blank?
+  end
 
+end
 
 puts "Init #{Numerology.count} Numerologies data => done"

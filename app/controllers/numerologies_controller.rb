@@ -14,17 +14,25 @@ class NumerologiesController < ApplicationController
     else
       flash[:error] = @numerology.errors.full_messages.to_sentence
     end
+    if numologry_params[:from] == "docvi"
+      UserMailer.send_docvi(email: @numerology.email,
+        name: @numerology.name,
+        id: @numerology.id).deliver_later
 
-    UserMailer.send_demo(email: @numerology.email,
-      name: @numerology.name,
-      id: @numerology.id).deliver_later
+      @numerology.update!(sent_demo: true)
+      redirect_back fallback_location: root_path
+    else
+      UserMailer.send_demo(email: @numerology.email,
+        name: @numerology.name,
+        id: @numerology.id).deliver_later
 
-    @numerology.update!(sent_demo: true)
-    redirect_back fallback_location: root_path
+      @numerology.update!(sent_demo: true)
+      redirect_back fallback_location: root_path
+    end
   end
 
   def numologry_params
-    params.require(:numerology).permit(:name, :email, :phone, :day_of_birth, :name2, :day_of_birth2)
+    params.require(:numerology).permit(:from, :name, :email, :phone, :day_of_birth, :name2, :day_of_birth2)
   end
 end
 
