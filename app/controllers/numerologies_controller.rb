@@ -1,4 +1,5 @@
 class NumerologiesController < ApplicationController
+  protect_from_forgery with: :null_session
   def new
     @numerology = Numerology.new
   end
@@ -10,7 +11,7 @@ class NumerologiesController < ApplicationController
 
 
     if @numerology.save
-      flash[:message] = "bạn đã đăng ký thành công! Hãy chờ đợi email trong vòng 24 tiếng nhá"
+      flash[:message] = "Bạn đã đăng ký thành công! Hãy chờ đợi email trong vòng 24 tiếng nhá"
     else
       flash[:error] = @numerology.errors.full_messages.to_sentence
     end
@@ -20,7 +21,6 @@ class NumerologiesController < ApplicationController
         id: @numerology.id).deliver_later
 
       @numerology.update!(sent_demo: true)
-      redirect_back fallback_location: root_path
     else
       UserMailer.send_demo(email: @numerology.email,
         name: @numerology.name,
