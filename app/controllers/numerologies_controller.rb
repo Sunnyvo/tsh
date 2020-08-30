@@ -19,8 +19,8 @@ class NumerologiesController < ApplicationController
       UserMailer.send_docvi(email: @numerology.email,
         name: @numerology.name,
         id: @numerology.id).deliver_later
-
       @numerology.update!(sent_demo: true)
+      format.json { head :no_content }
     else
       UserMailer.send_demo(email: @numerology.email,
         name: @numerology.name,
