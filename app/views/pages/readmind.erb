@@ -1,6 +1,6 @@
 <%= render inline: File.read('app/views/pages/index.html') %>
 
-<%= bootstrap_form_for(@numerology, :html=>{:remote=>true}) do |f| %>
+<%= bootstrap_form_for(@numerology) do |f| %>
     <%= f.hidden_field :name, label: "Họ và tên (Không dấu)", class:"name-h", :required => true %>
     <%= f.hidden_field :day_of_birth, label: "Ngày sinh",class:"ns-h", :required => true %>
     <%= f.hidden_field :phone, label: "Điện thoại", class:"phone-h",:required => true%>
@@ -47,7 +47,8 @@
 
     $("#FORM186 form").submit(function() {
         console.log("hello 3")
-        $(".server-s").click()
+        $("#new_numerology").submit();
     });
+
 })
 </script>
