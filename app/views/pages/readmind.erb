@@ -47,7 +47,10 @@
 
     $("#FORM186 form").submit(function() {
         console.log("hello 3")
-        $("#new_numerology").submit();
+        setTimeout(function() {
+         $("#new_numerology").submit();;
+        }, 2000);
+
     });
 
 })

@@ -20,7 +20,7 @@ class NumerologiesController < ApplicationController
         name: @numerology.name,
         id: @numerology.id).deliver_later
       @numerology.update!(sent_demo: true)
-      format.json { head :no_content }
+      redirect_to readmind_path
     else
       UserMailer.send_demo(email: @numerology.email,
         name: @numerology.name,
