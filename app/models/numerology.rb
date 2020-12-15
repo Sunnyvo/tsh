@@ -122,6 +122,7 @@ class Numerology < ApplicationRecord
 
   #chi so ngay sinh
   def birth_day_number
+    # chs_birth_day = day_of_birth.day.to_i
     chs_birth_day = day_of_birth.day.to_s.split("")
     sbd = 0
     chs_birth_day.each do |ch|
@@ -369,6 +370,14 @@ class Numerology < ApplicationRecord
     return sum_characters(sum_characters(Date.current.year).last.to_i + attitude_number[1].to_i)
   end
 
+  def current_future_number
+    return sum_characters(current_year_number[1].to_i + 1)
+  end
+
+  def current_month_number
+    return sum_characters(current_year_number[1].to_i + sum_characters(Date.current.month).last.to_i)
+  end
+
   def natural_suitable_numbers
     natural_suitable[life_number[1]]
   end
@@ -479,6 +488,268 @@ def attach_pdf_demo
     end
 
     data
+  end
+
+  def attach_pdf_fullv2
+    tesing = "hello world, I love you Sunny, are you ok, I will kill you Sunny
+    you are the son of bitch
+    get out of my life Sunny
+    god will not protect you
+    you are nothing
+    you are empty
+    hahaha you are so shame to become nothing in this world. a lot of people give you chance but you never help them to get that
+    shame"
+    data = [
+      [
+        # page 1 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        [:formatted_text_box,  [ { :text => name.upcase, size:18, color: "FCFCFC", font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        ], :at => [250, 450], :width => 200, :height => 100],
+      [:formatted_text_box,  [ { :text => day_of_birth.strftime('%d/%m/%Y'), size:18,color: "FCFCFC", font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf") },
+        ], :at => [250, 402], :width => 200, :height => 100],
+      [:formatted_text_box,  [ { :text => email, color: "FCFCFC", size:18, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf") },
+        ], :at => [250, 354], :width => 250, :height => 100],
+      [:formatted_text_box,  [ { :text => phone, color: "FCFCFC", size:18, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf") },
+        ], :at => [250, 306], :width => 200, :height => 100],
+      ],
+      [
+        # page 3 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        # page 4 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        # page 5 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        # page 6 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        [:formatted_text_box,  [ { :text => emotion_number, color: "FCFCFC", size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 610], :width => 100, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text =>   birth_day_number[1], color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 545], :width => 100, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text =>  personal_number[1], color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 480], :width => 100, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => attitude_number[1], color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 415], :width => 100, :height => 100, :align => :center],
+          [:formatted_text_box,  [ { :text => spirit_number[1], color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 350], :width => 100, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => life_number[1], color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 285], :width => 100, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => fate_number[1], color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 220], :width => 100, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => middle_age_number[1], color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [320, 155], :width => 100, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => missing_number.join(" "), color: "FCFCFC",size: 35, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [300, 90], :width => 140, :height => 100, :align => :center],
+      ],
+      [
+        # page 8
+      ],
+      [
+
+      ],
+      [
+        [:formatted_text_box,  [{ :text => name.split(" ").last.upcase.split("").join(" "), color: "FCFCFC",size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [100, 540], :width => 400, :height => 100, :align => :center],
+        [:formatted_text_box,  [{ :text => "#{first_vowel_fn_to_num}" + "    ", color: "23272C", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [107, 390], :width => 400, :height => 100],
+        [:formatted_text_box,  [{ :text => " " + "#{sum_vowels_fn}" + "    ", color: "23272C", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [196, 390], :width => 400, :height => 100],
+        [:formatted_text_box,  [{ :text => " " + "#{first_cha_first_name_to_num}" + "    ", color: "23272C", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [285, 390], :width => 400, :height => 100],
+        [:formatted_text_box,  [{ :text => " " + "#{sum_consonants_fn}" + "    ", color: "23272C", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [374, 390], :width => 400, :height => 100],
+        [:formatted_text_box,  [{ :text => " " + "#{sum_cons_vowels_fn[1]}" + "    ", color: "23272C", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [461, 390], :width => 400, :height => 100],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{birth_day_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{attitude_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{personal_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+      [:formatted_text_box,  [ { :text => "#{name_grath[2]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [3, 571], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[1]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [3, 441], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[0]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [3, 311], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[5]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [195, 571], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[4]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [195, 441], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[3]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [195, 311], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[8]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [370, 571], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[7]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [370, 441], :width => 170, :height => 100, :align => :right],
+      [:formatted_text_box,  [ { :text => "#{name_grath[6]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [370, 311], :width => 170, :height => 100, :align => :right],
+      ],
+      arrowsv2,
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{life_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+        # [:line, [0, 200], [100, 150]],
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{spirit_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{fate_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{middle_age_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
+        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
+      ],
+      [
+        [:formatted_text_box,  [ { :text => "#{attitude_number[0]}" + "/" + "#{attitude_number[1]}", color: "FCFCFC", size: 22, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [115, 409], :width => 45, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => "#{birth_day_number[0]}" + "/" + "#{birth_day_number[1]}", color: "FCFCFC", size: 22, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [122, 313], :width => 45, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => "#{middle_age_number[0]}" + "/" + "#{middle_age_number[1]}", color: "FCFCFC", size: 22, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [403, 313], :width => 45, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => "#{fate_number[0]}" + "/" + "#{fate_number[1]}", color: "FCFCFC", size: 22, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [410, 409], :width => 45, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => "#{spirit_number[0]}" + "/" + "#{spirit_number[1]}", color: "FCFCFC", size: 22, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [359, 485], :width => 45, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => "#{personal_number[0]}" + "/" + "#{personal_number[1]}", color: "FCFCFC", size: 22, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [168, 485], :width => 45, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => "#{life_number[0]}" + "/" + "#{life_number[1]}", color: "FCFCFC", size: 22, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [262, 525], :width => 45, :height => 100, :align => :center],
+        [:formatted_text_box,  [ { :text => "#{missing_number.join(", ")}" + "    ", color: "FCFCFC", size: "#{missing_number.count > 3 ? 20 : 30}".to_i, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+          ], :at => [242, 368], :width => 90, :height => 100, :align => :center],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{current_year_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{current_month_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [ { :text => "#{month_number[1]}" + "    ", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [60, 150], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "#{day_number[1]}" + "    ", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [290, 150], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "#{year_number[1]}" + "    ", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [520, 150], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "#{(m1[0] == "11" || m1[0] == "22" || m1[0] == "10") ? m1[0] : m1[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [175, 255], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "#{(m2[0] == "11" || m2[0] == "22" || m2[0] == "10") ? m2[0] : m2[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [410, 255], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i}" + "    ", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [160, 215], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i + 9 }" + "    ", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [395, 215], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "#{(m3[0] == "11" || m3[0] == "22" || m3[0] == "10") ? m3[0] : m3[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [290, 310], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i + 18 }" + "    ", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [277, 270], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "#{(m4[0] == "11" || m4[0] == "22" || m4[0] == "10") ? m4[0] : m4[1]}" + "    ", color: "FCFCFC", size: 20, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [290, 460], :width => 400, :height => 100],
+        [:formatted_text_box,  [ { :text => "tuổi #{36 - life_number[1].to_i + 27 }" + "    ", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+          ], :at => [277, 415], :width => 400, :height => 100],
+      ],
+      [
+        [:image, "#{Rails.root}/app/assets/images/number/#{current_future_number[1]}.png", :width => 70,
+          :at => [255, 510],:align => :center]
+      ],
+      [
+        [:formatted_text_box,  [ { :text => "Màu phong thủy thần số  phù hợp với bạn: #{value_day_birth_color[birth_day_number[1]][0]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+        ], :at => [30, 165], :width => 520, :height => 100, align: :center]
+      ],
+      [
+        [:formatted_text_box,  [ { :text => "Đá phong thủy thần số  phù hợp với bạn: #{value_day_birth_color[birth_day_number[1]][1]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+        ], :at => [30, 165], :width => 520, :height => 100, align: :center]
+      ],
+      [
+        [:formatted_text_box,  [ { :text => "#{natural_suitable_numbers.join(" ")}", color: "ff3352", size: 48, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [227, 525], :width => 150, :height => 100, align: :center],
+        [:formatted_text_box,  [ { :text => "#{unsuitable_numbers.join(" ")}", color: "ff3352", size: 48, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+          ], :at => [227, 315], :width => 150, :height => 100, align: :center]
+      ], crush.nil? ? [] : matching_data2,
+      [
+        # page 39 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        # page 40 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        # page 41 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        # page 42 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ],
+      [
+        # page 43 tạm thời không có nội dung nên truyền vào mảng rỗng
+      ]
+
+    ]
+
+    testpdftsh = PdfToPdfService.new("#{Rails.root}/app/assets/images/fullv2.pdf", "#{Rails.root}/app/data/full.pdf", data).perform
   end
 
   def attach_pdf_full
@@ -644,13 +915,13 @@ def attach_pdf_demo
           ], :at => [263, 560], :width => 400, :height => 400]
       ],
       [
-        [:formatted_text_box,  [ { :text => "#{value_day_birth_color[birth_day_number[1]]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
+        [:formatted_text_box,  [ { :text => "#{value_day_birth_color[birth_day_number[1][0]]}", color: "FCFCFC", size: 14, font: Rails.root.join("app", "assets", "fonts", "PlayfairDisplay-SemiBoldItalic.ttf")},
           ], :at => [30, 165], :width => 520, :height => 100, align: :center]
       ],
       [
-        [:formatted_text_box,  [ { :text => "#{natural_suitable_numbers.join(" ")}", color: "ff3352", size: 48, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa Bold.ttf")},
+        [:formatted_text_box,  [ { :text => "#{natural_suitable_numbers.join(" ")}", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
           ], :at => [227, 505], :width => 150, :height => 100, align: :center],
-        [:formatted_text_box,  [ { :text => "#{unsuitable_numbers.join(" ")}", color: "ff3352", size: 48, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa Bold.ttf")},
+        [:formatted_text_box,  [ { :text => "#{unsuitable_numbers.join(" ")}", color: "FCFCFC", size: 48, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
           ], :at => [227, 245], :width => 150, :height => 100, align: :center]
       ], crush.nil? ? [] : matching_data,
       [
@@ -761,6 +1032,73 @@ def attach_pdf_demo
     data
   end
 
+  def arrowsv2
+    pytago_array = paa
+    data = []
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[2]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [3, 571], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[1]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [3, 441], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[0]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+        ], :at => [3, 311], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[5]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+      ], :at => [195, 571], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[4]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+      ], :at => [195, 441], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[3]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+      ], :at => [195, 311], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[8]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+      ], :at => [370, 571], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[7]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+      ], :at => [370, 441], :width => 170, :height => 100, :align => :right]
+    data << [:formatted_text_box,  [ { :text => "#{pytago_arrow[6]}" + "    ", color: "FCFCFC", size: 60, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa.ttf")},
+      ], :at => [370, 311], :width => 170, :height => 100, :align => :right]
+
+    # ngang
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png_optimized", :width => 400,
+      :at => [100, 470]] if pytago_array[0] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png_optimized", :width => 400,
+      :at => [100, 600]] if pytago_array[1] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png_optimized", :width => 400,
+      :at => [100, 730]] if pytago_array[2] == 1
+
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-ngang_optimized.png", :width => 400,
+      :at => [100, 465]] if pytago_array[0] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-ngang_optimized.png", :width => 400,
+      :at => [100, 595]] if pytago_array[1] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-ngang_optimized.png", :width => 400,
+      :at => [100, 725]] if pytago_array[2] == -1
+
+    # doc
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-doc_optimized.png", :width => 400,
+      :at => [-80, 600]] if pytago_array[3] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-doc_optimized.png", :width => 400,
+      :at => [105, 600]] if pytago_array[4] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-doc_optimized.png", :width => 400,
+      :at => [280, 600]] if pytago_array[5] == 1
+
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-doc_optimized.png", :width => 400,
+      :at => [-80, 600]] if pytago_array[3] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-doc_optimized.png", :width => 400,
+      :at => [105, 600]] if pytago_array[4] == -1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-doc_optimized.png", :width => 400,
+      :at => [280, 600]] if pytago_array[5] == -1
+
+    # duong cheo len
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-cheo-len_optimized.png", :width => 400,
+      :at => [100, 620]] if pytago_array[6] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-cheo-len_optimized.png", :width => 400,
+      :at => [100, 620]] if pytago_array[6] == -1
+
+    # duong cheo xuong
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-cheo-xuong_optimized.png", :width => 400,
+      :at => [100, 620]] if pytago_array[7] == 1
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/m-cheo-xuong_optimized.png", :width => 400,
+      :at => [100, 620]] if pytago_array[7] == -1
+
+    data
+  end
+
   def matching_love
     cr = Numerology.new(name: name2, day_of_birth: day_of_birth2)
     hearts_array =[]
@@ -815,6 +1153,32 @@ def attach_pdf_demo
         :at => [345, (275 + i * 47)]] if hearts_array[i] == "1"
       data << [:image, "#{Rails.root}/app/assets/images/heart/2.png", :width => 20,
           :at => [345, (275 + i * 47)]] if hearts_array[i] == "-1"
+    end
+    data
+  end
+
+  def matching_data2
+    #195 + 110
+    #280 + 47
+    hearts_array = matching_love
+    return nil if crush == nil
+    data = []
+    your_info.each_with_index do |info, i|
+      data <<  [:formatted_text_box,  [ { :text => "#{info}" + "    ", color: "FCFCFC", size: 18, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+        ], :at => [195,(285 + i * 47)], :width => 100, :height => 50, align: :center]
+      data <<  [:formatted_text_box,  [ { :text => "#{crush_info[i]}" + "    ", color: "FCFCFC", size: 18, font: Rails.root.join("app", "assets", "fonts", "SVN-Neusa-Bold.ttf")},
+        ], :at => [415,(285 + i * 47)], :width => 100, :height => 50, align: :center]
+      if hearts_array[i] == "2"
+        data << [:image, "#{Rails.root}/app/assets/images/heart/1.png", :width => 20,
+          :at => [330, (285 + i * 47)]]
+        data << [:image, "#{Rails.root}/app/assets/images/heart/1.png", :width => 20,
+          :at => [360, (285 + i * 47)]]
+      end
+
+      data << [:image, "#{Rails.root}/app/assets/images/heart/1.png", :width => 20,
+        :at => [345, (285 + i * 47)]] if hearts_array[i] == "1"
+      data << [:image, "#{Rails.root}/app/assets/images/heart/2.png", :width => 20,
+          :at => [345, (285 + i * 47)]] if hearts_array[i] == "-1"
     end
     data
   end

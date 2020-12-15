@@ -57,16 +57,16 @@ module Suitable
 
   def value_day_birth_color
     return {
-      "1" => "Màu vàng các loại, bao gồm cả cam và nâu vàng, hổ phách, kim cương, topaz",
-      "2" => "Màu green, kem và trắng, ngọc trai, đá mặt trăng, ngọc bích, ngọc mắt mèo",
-      "3" => "Màu tím, thạch anh tím",
-      "4" => "Màu xám, saphia",
-      "5" => "Màu sáng, lấp lánh; kim cương, đá lấp lánh",
-      "6" => "Màu xanh blue, ngọc lục bảo, ngọc lam, đá màu xanh",
-      "7" => "Màu xám bồ câu, đá mặt trăng, ngọc trai, ngọc mắt mèo",
-      "8" => "Màu xám đậm, lam đậm, tía, đen; các loại đá màu sậm: thạch anh tím, rubi xỉn màu, ngọc trai
-      đen, kim cương đen, shapphia sẫm",
-      "9" => "Màu hồng, đỏ, ruby, đá màu đỏ",
+      "1" => ["Màu vàng các loại, bao gồm cả cam và nâu vàng", "hổ phách, kim cương, topaz"],
+      "2" => ["Màu green, kem và trắng" , "ngọc trai, đá mặt trăng, ngọc bích, ngọc mắt mèo"],
+      "3" => ["Màu tím", "thạch anh tím"],
+      "4" => ["Màu xám", "saphia"],
+      "5" => ["Màu sáng, lấp lánh", "kim cương, đá lấp lánh"],
+      "6" => ["Màu xanh blue", "ngọc lục bảo, ngọc lam, đá màu xanh"],
+      "7" => ["Màu xám bồ câu", "đá mặt trăng, ngọc trai, ngọc mắt mèo"],
+      "8" => ["Màu xám đậm, lam đậm, tía, đen", "các loại đá màu sậm: thạch anh tím, rubi xỉn màu, ngọc trai
+      đen, kim cương đen, shapphia sẫm"],
+      "9" => ["Màu hồng", "đỏ, ruby, đá màu đỏ"],
       }
   end
 end
