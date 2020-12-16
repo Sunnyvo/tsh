@@ -9,6 +9,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  ROLE = [
+    {
+      name: 'super admin', value: 'ADMINV2'
+    }
+  ]
+  
   CATEGORY = [
     { name: 'General', value: 'GENERAL' },
     { name: 'bản rút gọn', value: 'SEND_DEMO' },

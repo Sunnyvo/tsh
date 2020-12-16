@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_055206) do
+ActiveRecord::Schema.define(version: 2020_12_15_034340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 2020_08_29_055206) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_email_templates_on_user_id"
+  end
+
+  create_table "num_contents", force: :cascade do |t|
+    t.text "number"
+    t.string "subject"
+    t.text "content"
+    t.text "advise"
+    t.string "category", default: "GENERAL"
+    t.boolean "active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "numerologies", force: :cascade do |t|

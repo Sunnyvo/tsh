@@ -570,7 +570,7 @@ def attach_pdf_demo
           :at => [255, 510],:align => :center]
       ],
       [
-        [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_db_num, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
         [:formatted_text_box,  [{ :text => tesing, color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
@@ -1181,6 +1181,20 @@ def attach_pdf_demo
           :at => [345, (285 + i * 47)]] if hearts_array[i] == "-1"
     end
     data
+  end
+
+  def get_content_db_num
+    doc = Nokogiri::HTML(NumContent.select("content")
+    .where(number: birth_day_number[1], category: "DB_NUM")
+    .first.content)
+    doc.search('br').each{|li| li.after "\n"}
+    doc.content
+    # doc.css('p').map do |link|
+    #   link.content
+    # end
+    # doc.css('br').each do |node|
+    #   node.replace(Nokogiri::XML::Text.new("\n", @doc))
+    # end
   end
 
   def self.import(file)
