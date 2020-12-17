@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 users_attributes = [
 {
-  email: 'tsh@gmail.com', password: '101010', password_confirmation: '101010'
+  email: 'info@miranum.com', password: 'Miracle!@#123', password_confirmation: 'Miracle!@#123'
 },
 
 {
