@@ -1,4 +1,12 @@
 Trestle.resource(:num_contents) do
+  search do |query|
+    if query
+      NumContent.where("subject ILIKE ?", "%#{query}%")
+    else
+      NumContent.all
+    end
+  end
+
   menu do
     group :content_number_management, priority: :first do
       item :num_contents, icon: "fa fa-star"
@@ -12,8 +20,9 @@ Trestle.resource(:num_contents) do
   # Customize the table columns shown on the index view.
   #
   table do
-    column :category
     column :number
+    column :category
+    column :subject
     column :content
     column :advise
     column :created_at, align: :center
@@ -32,6 +41,7 @@ Trestle.resource(:num_contents) do
     tab :post do
       select :category, NumContent::CATEGORY.map{|x| x[:value]}
       text_field :number
+      text_field :subject
       editor :content
       editor :advise
       check_box :active

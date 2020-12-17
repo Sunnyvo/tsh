@@ -18,6 +18,7 @@ users_attributes = [
 users_attributes.each do |user_attributes|
   user = User.new(user_attributes)
   # user.skip_confirmation!
+  puts user_attributes[:email]
   user.save! if User.where(email: user_attributes[:email]).first.blank?
 
 end
@@ -134,6 +135,7 @@ puts "Init #{Numerology.count} Numerologies data => done"
 numcontents_attributes = [
   # day of birth
   {
+    subject:"Chỉ số ngày sinh",
     number: "1",
     content: "Bạn thể hiện năng lực của người lãnh đạo.  <br>
     Bạn có khả năng tập trung cao, trí thông minh, sự sáng tạo  và khả năng hành động, ra quyết định dứt khoát.",
@@ -142,6 +144,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "2",
     content: "Bạn là người tình cảm chân thành coi trọng mối quan hệ. Biểu hiện ra ngoài rất nhẹ nhàng tình cảm, dễ mến  <br>
     Bạn nhạy cảm và có trực giác tốt, bởi sở hữu con số của cảm xúc nên thường có năng khiếu về văn, thơ ca nghệ thuật, vẽ, có tính nghệ sĩ.",
@@ -150,6 +153,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "3",
     content: "Bạn sở hữu năng lực truyền đạt bằng ngôn từ.  Là người hoạt ngôn, và sử dụng ngôn từ sắc bén. Vì vậy bạn thường là người quảng giao, nhiều bạn bè.  <br>
     Bạn vô cùng sáng tạo và luôn có nhiều ý tưởng.",
@@ -158,6 +162,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "4",
     content: "Bạn thể hiện ra ngoài là một người sự mộc mạc, chân thật và trách  <br>
     Bạn có năng lực phân tích, tổ chức quản trị giỏi.  <br>
@@ -167,6 +172,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "5",
     content:"Bạn luôn muôn có sự tự do để được trải nghiệm mọi điều của cuộc sống.  <br>
     Số 5 hay gặp may mắn, có nhiều tài lẻ, thông minh sáng tạo, đa tài.",
@@ -175,6 +181,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "6",
     content:"Bạn toát lên vẻ hiền hậu và ngây thơ từ gương mặt ánh mắt, nụ cười.  <br>
     Ban là đại diện hình mẫu của người Mẹ,luôn quan tâm, chăm sóc mọi người, tình cảm rộng lớn bao dung <br>
@@ -184,6 +191,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "7",
     content:"Bạn là người giỏi quan sát, suy luận, tự tư duy và đúc kết ra bài học cho bản thân.  <br>
     Luôn sớm tự đi tìm triết lý sống cho mình, và thường là những người trầm tính, già dặn trước tuổi.",
@@ -192,6 +200,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "8",
     content:"Bạn có năng lực điều hành quản trị, quản lý tài chính.  <br>
     Bạn chăm chỉ và say mê công việc, giành nhiều thời gian cho công việc.  <br>
@@ -201,6 +210,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "9",
     content:"Bạn sử hữu sức mạnh đặc biệt đó là sự thu hút lòng tin của người khác một cách rất tự nhiên ngay từ những lần đầu tiên gặp gỡ, điều đó giúp bạn được rât nhiều người quý mến.  <br>
     Bạn có khả năng lãnh đạo với trực giác mạnh, trí tuệ sáng, và luôn biết hy sinh vì người khác.",
@@ -209,6 +219,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "11",
     content:"",
     advise:"",
@@ -216,6 +227,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "22",
     content:"",
     advise:"",
@@ -223,6 +235,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số ngày sinh",
     number: "33",
     content:"",
     advise:"",
@@ -231,6 +244,7 @@ numcontents_attributes = [
   },
   #====== attitude number
   {
+    subject:"Chỉ số thái độ",
     number: "1",
     content: "Trong công việc: Bạn luôn thể hiện là một người làm việc độc lập, trách nhiệm, tự trọng cao, quyết liệt khi ra ý kiến và, và thích tự quyết định.  <br>
     Trong mối quan hệ: bạn có xu hướng thích được thể hiện bản thân và thích người khác tin tưởng, ca ngợi thì năng lượng được tăng lên gấp đôi.",
@@ -239,6 +253,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "2",
     content: "Thái độ trong công việc: Bạn thường là nhân viên mẫn cán, tận tụy với công ty và đội nhóm, thường hay hy sinh lợi ích của bản thân vì lợi ích chung của tổ chức, thích hợp tác, giúp đỡ người khác trong công việc. <br>
     Trong các mối quan hệ:  Bạn thể hiện sự hòa nhã, thân thiện, nhẹ nhàng, yêu thương, nhạy cảm và cũng dễ bị tổn thương.",
@@ -247,6 +262,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "3",
     content: "Bạn thường thích làm việc nhóm và có khả năng kết nói, hớp tác vì mục đích chung tốt, khi làm việc hay có nhiều ý tưởng, giải pháp vô cùng sáng tạo. <br>
     Thích làm việc với những người vui vẻ, và những nơi tạo cảm hứng.  <br>
@@ -256,6 +272,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "4",
     content: "Thái độ trong công việc với bạn cần thiết sự nghiêm túc, trách nhiệm và trung thực. Bạn thường lên kế hoạch rõ ràng cho công việc, thái độ hợp tác chân thành với đồng nghiệp, sẵn sàng chia sẻ kiến thức,và cách làm việc cho họ. <br>
     Trong mối quan hệ: bạn không phải là người giao tế rộng rãi, nhưng lại là người bạn đáng trân quý bởi sự chân thành, đáng tin cậy và rất nhiệt tình.",
@@ -264,6 +281,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "5",
     content:"Thái độ trong công việc: của người có chỉ số thái độ 5 sẽ rất khác lạ. Hoặc bạn  sẽ là người vô cùng nhiệt thành và năng lượng, bạn có thể tạo những đột phá lớn lao trong hiệu suất công việc được giao, nếu công việc đó cho bạn đủ sự tự do và khám phá những điều mới mẻ. Hoặc bạn sẽ thấy chán nản, mất hứng nếu đó là môi trường kỷ luật khà khắc và nhám chán. <br>
     Trong mối quan hệ bạn được đánh giá là người sôi nổi, năng lượng, tươi vui, yêu cuộc đời, hay rủ rê bạn bè vào những cuộc vui. ",
@@ -272,6 +290,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "6",
     content:"Thái độ trong công việc bạn luôn thể hiện là người có trách nhiệm, lo lắng cho mọi công việc từ những điều nhỏ nhất, và ẩn sâu bên trong bạn luôn muốn thể hiện mình là người có giá trị quan trọng trong công ty hoặc dự án. Và để trở thành người như vậy bạn cần có kiến thức chuyên sâu tốt, tập trung và nắm rõ mọi chi tiết công việc chung đó. <br>
     Trong mối quan hệ bạn luôn được đánh giá là người tốt bụng, luôn  quan tâm, chăm sóc, lo lắng đến mọi người, sẵn sàng chỉ đẫn, tư vấn, dạy dỗ thậm chí là làm thay công việc của họ.",
@@ -280,6 +299,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "7",
     content:"Thái độ trong công việc: Thích làm việc lặng lẽ 1 mình, có sự độc lập nhưng thiếu sự sôi nổi, rất ngang bướng, rất ghét sự điều khiển, luôn có sự quan sát rất tinh tế (cả quan điểm của người khác). Có câu hỏi sâu sắc trong khi thảo luận. Trong công việc nếu xung đột thì họ không hợp tác nữa. Họ làm việc 1 cách có kiến thức không phải theo cảm tính.Không quan tâm người khác nghĩ gì. <br>
     Trong mối quan hệ: Thường là người kín đáo, khó hiểu, không muốn người khác biết về mình, thái độ lạnh nhạt, thờ ơ, khó gần, nhiều khi hơi đơn độc.",
@@ -288,6 +308,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "8",
     content:"Trong công việc bạn thực sự toát lên năng lượng của người làm quản lý với khả năng bao quát rất tốt mọi vấn đề. Bạn thực sự có thể được gọi là một nhân viên mẫn cán hay kẻ nghiện công việc ấy. Bạn vô cùng trách nhiệm, tận tụy và đắm chìm trong những công việc của mình. <br>
     Trong mối quan hê bạn thường thể hiện là người thực tế và thường đưa ra những góp ý thẳng thắn cũng như bản thân hay bộc bạch, tâm sự thẳng thắn với bạn bè. Bạn sắn sàng tranh luận tới cùng một vấn đề để tìm ra kết luận đúng - sai.",
@@ -296,6 +317,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "9",
     content:"Thái độ trong công việc của bạn mang số 9 có nghĩa là bạn luôn có tinh thần trách nhiệm rất cao và chữ tín là ưu tiên hàng đầu của bạn. Bạn còn thể hiện sự thông minh, chủ động, thần thái của một nhà lãnh đạo trong công việc của mình. Bạn luôn được đánh giá là người có nhiều tiềm năng, là tấm gương cho mọi người noi theo khi làm việc  <br>
    Trong mối quan hệ bạn thể hiện là người nhân hậu, rộng rãi, dễ hợp tác. Bạn rất coi trọng con người, coi trọng tình cảm và các mối quan hệ xã hội. Ai cần tới sự giúp đỡ của bạn, hoặc thấy cảnh ngộ ở bất kỳ đâu bạn luôn sẵn lòng giúp đỡ.",
@@ -304,6 +326,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "11",
     content:"",
     advise:"",
@@ -311,6 +334,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "22",
     content:"",
     advise:"",
@@ -318,6 +342,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số thái độ",
     number: "33",
     content:"",
     advise:"",
@@ -327,6 +352,7 @@ numcontents_attributes = [
 
   #====== personal number
   {
+    subject:"Chỉ số nhân cách",
     number: "1",
     content: "Bạn là một người tiên phong, luôn xông pha lên phía trước.  <br>
     Tự chủ, độc lập, kiên định và không thích bị sai khiến.  <br>
@@ -337,6 +363,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "2",
     content: "Bạn muốn thể hiện mình là người sống hài hòa, tình cảm, nhẹ nhàng, dễ gần  <br>
     Trực giác tốt, đồng cảm và coi trọng các mối quan hệ.  <br>
@@ -347,6 +374,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "3",
     content: "Người khác đánh giá bạn là người hướng ngoại, thích giao lưu kết bạn với nhiều người. <br>
     Bạn rất thông minh, thích sự vui vẻ và đầy tính hài hước, có tính nghệ sỹ và thường xuyên nở nụ cười rạng rỡ.",
@@ -356,6 +384,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "4",
     content: "Bạn được đánh giá là người rất nghiệm túc, có trách nhiệm, có khả năng quản lý và tổ chức tốt. <br>
     Sự kỷ luât, trật tự, sự an toàn là điều bạn luôn hướng tới <br>
@@ -366,6 +395,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "5",
     content:"Bạn được đánh giá là người rất sôi nổi, nhiệt tình, vui vẻ và nhiều năng lượng. <br>
     Bạn thích sự tự do, khám phá, phiêu lưu mạo hiểm và trải nghiệm những điều mới mẻ. <br>
@@ -375,6 +405,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "6",
     content:"Bạn là người yêu thương, quan tâm và bao dung nhất. Bạn mang hình ảnh một Người Mẹ hiền hòa tới tất cả mọi người. <br>
     Yêu hòa bình, rất được mọi người yêu quý. <br>
@@ -384,6 +415,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "7",
     content:"Bạn mang một vẻ ngoài khá là lạnh lùng, bí ẩn và đơn độc và hay muốn tách mình khỏi tập thể, tuy nhiên bạn cực kỳ tốt bụng và nhân ái. <br>
     Bạn là người thông thái, tôn trọng tri thức và cực kỳ nhiều kiến thức. <br>
@@ -395,6 +427,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "8",
     content:"Bạn thường thể hiện ra bên ngoài là một sự uy quyền hoặc giàu sang choáng ngợp bất kỳ ai. <br>
     Có tố chất  kinh doanh giỏi và là người quản lý tài chính, bao quát giỏi. <br>
@@ -404,6 +437,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "9",
     content:"Bạn luôn thể hiện là một người nhân hậu, tốt bụng, luôn sống vì người khác nên được mọi người tin yêu. <br>
     Người khác luôn thấy bạn mang một tầm vóc lớn, một người có khả năng lãnh đạo và thu hút được niềm tin yêu của mọi người.",
@@ -413,6 +447,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "11",
     content:"",
     advise:"",
@@ -420,6 +455,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "22",
     content:"",
     advise:"",
@@ -427,6 +463,7 @@ numcontents_attributes = [
     active: true
   },
   {
+    subject:"Chỉ số nhân cách",
     number: "33",
     content:"",
     advise:"",
@@ -436,6 +473,7 @@ numcontents_attributes = [
 #========
 #====== life path number
 {
+  subject:"Chỉ số đường đời",
   number: "1",
   content: "Con số chủ đạo của bạn là số 1 – bạn được hưởng năng lượng tích cực từ Mặt trời rực lửa. Với một trí lực mạnh mẽ, tư duy sáng trí, bạn là hiện thân của người thủ lĩnh can trường, dũng mãnh. Bạn là người tiên phong đầy bạn lĩnh và luôn dẫn đầu tiên phong để đối chọi với mọi khó khăn thử thách. Số 1 mang năng lượng dương mạnh nhất đứng đầu dãy số Pythagore nên được coi là con số của người thống trị đỉnh cao. Số 1 không bao giờ ngại xông pha và đạt ra những mục tiêu chinh phục. <br>
   Mặt trời đốt cháy vạn vật khi ở quá gần, vậy nên năng lượng bạn tỏa ra sôi sục luôn choáng ngợp và lấn át người khác, và muốn chi phối họ, thế nên họ e dè chẳng dám tới gần Mặt trời.",
@@ -446,6 +484,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "2",
   content: "Theo Pythagore, con số chủ đạo của bạn là số 2 – bạn được hưởng năng lượng của Mặt trăng dịu êm. Bạn rất giỏi kết nối và chạm vào cảm xúc của người khác bằng sự trân thành của mình. Và đồng thời bạn luôn biết xoa dịu các hiềm khích, tạo không khí hòa hảo để kết nối mọi người với nhau. Nên bạn trong tâm tưởng và trong con mắt mọi người hiện lên hình ảnh một chú bồ câu hiền hòa. <br>
   Sự nhạy cảm quá mức sẽ khiến bạn đôi lúc hay e dè, ít thể hiện bản thân và ngại nói ra những cảm xúc của mình, điều đó sẽ làm những người xung quanh khó đọc hết tâm ý của bạn.",
@@ -456,6 +495,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "3",
   content: "Bạn là hiện diện của sự bộc lộ bản thân và lan tỏa những giá trị mình có. Bạn luôn được nhắc đến là một người thông minh, vô cùng nhiều ý tưởng, khiếu hài hước, sự vui vẻ và hoạt ngôn. Bạn luôn biết khéo léo trình bày quan điểm cá nhân, lồng ghép vào những ý tưởng của người khác, hoặc trích lời các danh nhân làm lời nói bạn có trọng  lượng và sức ảnh hưởng lớn hơn. Ngoài ra số 3 luôn có điểm nhấn vô cùng mạnh mẽ nào đó khiến sự bộc lộ của bản thân bạn ra ngoài, trở thành niềm cảm hứng, lan tỏa tới mọi người. <br>
   Mang trong mình số 3 sẽ là bùng nổ và lan tỏa nếu bạn được thúc đẩy và cổ vũ nhưng nếu nhốt mình trong vùng thoải mái",
@@ -464,6 +504,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "4",
   content: "Bạn mang con số Chủ đạo số 4, có nghĩa năng lượng rung của bạn tăng cường khả năng làm việc rất kỷ luật, tỉ mỉ theo trật tự, mọi thứ hỗn độn đều có thể được bạn sắp xếp vào khuôn khổ trật tự của nó. Công việc và cuộc sống của bạn luôn gắn liền với tính kỷ luật, sự sắp xếp logic và những con số. Bạn coi trong sự đúng giờ và tuân theo các qui định luật lệ nghiêm khắc một cách thoải mái. <br>
   Kỷ luật là ngọn đuốc để hướng bạn đến thành công chắc chắn nhưng hãy học hỏi thêm sự linh hoạt và ứng biến cho cuộc sống nhiều màu sắc hơn bạn nhé !",
@@ -474,6 +515,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "5",
   content:"Khi bạn mang con số Chủ Đạo là số 5, sẽ không có gì là với sức sáng tạo đột phá vô hạn định của bạn. Bạn luôn sôi nổi cuồng nhiệt và đam mê, sự yêu thích phiêu lưu, sự tự do luôn bộc lộ cả trên thể chất lần tinh thần. Thường bạn thích tận hưởng cuộc sống bằng đẩy đủ các giác quan nhạy bén của mình. Thật tuyệt vời khi mang trong mình năng lượng cuồng nhiệt của số 5. <br>
   Bạn luôn sống trong thực tại với tâm thế mạnh mẽ mà không hề bị quá lo cho tương lai hay cứ ảm đạm với quá khứ. Chỉ có thực tại mới làm thay đổi cảm xúc trọng bạn mạnh mẽ, hãy kiểm soát nó nếu bạn có thêm những bộ số của cảm xúc nhé!",
@@ -484,6 +526,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "6",
   content:" Có thể nói chắc chắn một điều rằng những người ở xung quanh bạn luôn cảm thấy sự quan tâm ấm áp từ bạn. Từ bạn toát ra sự chăm sóc và yêu thương, hòa nhã, nhất là với trẻ con, và thực sự bạn có sức hút với con trẻ, chúng yêu quý và quấn quýt bạn. Số 6 trong con số chủ đạo được ví như tấm lòng người mẹ tượng trưng cho sự chăm sóc, nuôi dưỡng và hòa hợp. <br>
   Điều đáng trân quý là bạn luôn dùng hết sức lực và tâm trí bản thân để quan tâm đến những người khác, nhưng hãy luôn cân bằng giữa việc cho và nhận, đôi lúc ham cho quá mà bản thân bi lợi dụng, bị kiệt sức.",
@@ -494,6 +537,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "7",
   content:"Bạn mang trong mình năng lượng rung của con số 7 chủ đạo giống như bạn chiếm giữ được biểu tượng sự thiêng liêng, trí tuệ và huyền bí mà nó mang lại. Bạn tôn trọng tri thức, và những môn huyền học, bạn luôn quan tâm kỹ đến những vấn đề mình đã trải nghiệm qua, tư duy suy nghĩ về nó, chiêm nghiệm nó để đúc kết nên những luận điểm uyên thâm. <br>
   Điểm nhấn trong con người bạn chính là bạn như một kho sách sống, điều đó khiến mọi người rất trân trọng bạn. Nhưng nếu mình lắng nghe nhiều thêm, bớt sự tự phụ về tri thức của cá nhân biết đâu mình sẽ gạn lọc được nhiều điều thú vị hơn nữa từ người khác.",
@@ -504,6 +548,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "8",
   content:"Chỉ số chủ đạo số 8 dù trong văn hóa phương Tây hay hay phương Đông thì đều là con số đại diện cho sự thành công và may mắn. Bạn luôn thể hiện sự mạnh mẽ và chinh phục các mục tiêu, và luôn thành công với các mục tiêu đó. Quyền lực, danh vọng, vật chất và sức mạnh người số 8 sẽ luôn đtạ được sau những ngày lao đông cực kỳ hang say và nhiệt huyết. <br>
   Cứ nhắc đến bạn là người ta nhìn thấy một con người tỏa sáng với tấm gương chăm chỉ, mẫn cán và say sưa dốc sức cho những công việc, những dự án bạn đang làm. Chính điều đó khiến bạn đôi lúc bỏ bê việc chăm sóc chính mình, hãy giữ gìn sức khỏe nhiều hơn nhé!",
@@ -514,6 +559,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "9",
   content:"Hình ảnh tuyệt vời mà bạn mang đến cho mọi người là tâm gương của sự cho đi, lòng vị tha, nhân hậu và hướng tới mọi người, tới cộng đồng, mang tầm cỡ bậc vĩ nhân có ảnh hưởng lớn đến xã hội. Số 9 theo quan điểm Thần số học của Pythagore là con số mang năng lượng cao nhất, mang màu sắc của tất cả các rung động số khác. Vậy nên được sở hữu nó là niềm vinh hạnh và chứng tỏ bạn là một người rất sáng trí, thông minh, học nhanh và rất có lý tưởng có hoài bão lớn lao. <br>
   Với trí tuệ thông suốt làm cho số 9 luôn có nhiều hoạt động tinh thần mạnh mẽ đôi lúc dẫn đến sự ức chế và làm bạn mệt mỏi, những lúc đó hãy luôn cân bằng, giữ vững mục tiêu và kiên trì theo lý tưởng mình đang theo đuổi!",
@@ -524,6 +570,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "11",
   content:"",
   advise:"",
@@ -531,6 +578,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "22",
   content:"",
   advise:"",
@@ -538,6 +586,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số đường đời",
   number: "33",
   content:"",
   advise:"",
@@ -547,6 +596,7 @@ numcontents_attributes = [
 #==================
 #====== spirit number
 {
+  subject:"Chỉ số linh hồn",
   number: "1",
   content: "Bạn có sức manh nội tại luôn sôi sục, tinh thần đó luôn truyền năng lượng nhiệt huyết giúp bạn đứng lên một cách bản lĩnh để tiến tới chiên thắng. Bạn luôn hướng đến mục tiêu và được tự do để thực thi điều mình muốn luôn muốn được khẳng định bản thân, làm chủ trong mọi tình huống <br>
   Khao khát muốn mọi thứ hoàn thiện đôi khi đặt áp lực quá cao trong con người bạn, và cho chính bạn. Hãy nhìn mình trong gương mỉm cười và tự hào đi nào. Bạn xứng đáng được nhận sự tự hào về chính mình sau rất nhiều nỗ lực đó!",
@@ -555,6 +605,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "2",
   content: "Cho dù bạn là nam hay nữ  thì sâu thẳm con người bên trong của bạn luôn yêu thích sự hài hòa, yên ấm, bình an và hạnh phúc trong các mối quan hệ. Chính vì vậy bạn luôn có những khát khao thầm kín hướng tới một tình yêu đẹp đẽ. Khả năng trực giác rất mạnh có thể cho bạn những linh cảm trước những vấn đề có thể sảy ra, hoặc những giấc mơ báo trước sự thật. <br>
   Bạn là người khong có tham vọng nhiều về tài chính hay quyền lực mà cái bạn hướng tới chỉ là sự bình an và tình yêu đẹp. Nên đôi khi bạn khá e dè trước những quyết định thay đổi, hãy tin tưởng vào trực giác và hãy mạnh dạn và dấn thân hơn khi trực giác bạn lên tiếng.",
@@ -563,6 +614,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "3",
   content: "Trong tâm khảm linh hồn số, 3 bạn hiểu rất rõ sức mạnh của ngôn từ và luôn khao khát sở hữu năng lực đó, vậy nên bạn luôn để ý và rèn luyện điều đó mỗi ngày khi có thể. Niềm vui và hạnh phúc lớn nhất của bạn chính là sự dụng ngôn từ và thu hút sự chú ý, tạo niềm vui cho mọi người thông qua sự diễn đạt của bản thân.  <br>
   Bạn luôn biết cách chọn lọc ngôn từ một cách có chừng mực nhất để diễn đạt mọi thứ, nên bạn sẽ không hay khoe khoang về bản thân quá như những con số 3 ở ví trị khác. Và có một nỗi niềm ẩn sâu về sự sợ nỗi cô đơn lẩn khuất đâu đó nên bạn luôn thích thú chỗ đông người, với những câu chuyện vui vẻ và thu hút.",
@@ -571,6 +623,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "4",
   content: "Sở hữu chỉ số Linh hồn 4 bạn là người rất tôn thờ sự rõ ràng, kỷ luật, tỉ mỉ và trình tự. Khi làm bất cứ công việc gì bạn đều âm thầm xem xét theo dõi mọi vấn đề một cách chi tiết nhất, kỹ lượng nhất, bạn dành rất nhiều thời gian tâm sức cho điều đó. <br>
   Có một niềm tin về sự vững trãi và đáng tin cậy trong con người của bạn nên những người bên cạnh sẽ có cảm giác bạn như một bức tường vững trãi mà họ có thể dựa vào và tìm kiếm khi họ bất ổn.",
@@ -579,6 +632,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "5",
   content:"Chỉ số Linh hồn 5 mà bạn đang sở hữu giúp bạn có sức sáng tạo và khám phá mạnh mẽ vô cùng tận, ý tưởng tuôn chảy trong bạn cuồn cuộn nhưng bạn hiếm khi chia sẻ những ý tưởng đó ra ngoài. <br>
   Bạn biết rất rõ nội tâm mình cần gì và không ngại thay đổi, không ngại thử thách, thử đến khi đúng và hoàn thiện thì thôi. Đó là điểm mạnh vô cùng lớn của những người thành công – Bạn không bao giờ gục ngã trước những sai lầm bởi với bạn đó chỉ là những trải nghiệm sống để hoàn thiện mà thôi.",
@@ -587,6 +641,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "6",
   content:"Bạn mang trong mình năng lượng rung động của chỉ số Linh hồn 6, được ví như trái tim của người cha. Bởi bạn luôn ở đó, quan sát và nắm bắt mọi tình thế và thấu hiểu từng con người một cách âm thầm nhưng mọi sự việc đều cần đến thời điểm bạn sẵn lòng giang tay giúp đỡ.  <br>
   Trong sâu thẳm bạn yêu thích con trẻ, tôn thờ những điều mang tính ngây thơ và hồn nhiên đó, một mái ấm và tiếng cười trẻ thơ.",
@@ -595,6 +650,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "7",
   content:"Sở hữu năng lượng rung động của con số 7 ở bất kỳ đâu thì cũng đã là người người luôn thiên về thế giới tinh thần rồi, nhưng con số 7 của bạn còn nằm ở ngay vị trí bên trong – chỉ số Linh hồn nên điều này khiến sự tập trung cho phần bên trong đó càng trở lên mạnh mẽ hơn nữa.  Bạn luôn chìm đắm trong đó đào sâu sự tự tìm hiểu về bản thân, chiêm nghiệm, và tìm kiếm triết lý. Số 7 luôn tôn trọng tri thức và luôn cố gắng lý giải mọi sự kiện mọi vấn đề xung quanh bạn bằng những tri thức sâu sắc mà bạn đúng kết được. <br>
   Thế giới bên trong của bạn vô cùng thú vị với nhiều vấn đề độc đáo, nên để nuôi dưỡng nó, bạn thường có xu thế muốn ở một mình tách biệt, và điều đó đôi lúc khiến người khác hiểu lầm bạn  trong môi trường xã hội cộng đồng. Hãy cởi mở hơn một chút, chia sẻ ra ngoài nhiều hơn, chắc hẳn tri thức mà bạn tích cóp được sẽ giúp ích cho rất nhiều người đó!",
@@ -603,6 +659,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "8",
   content:"Chúc mừng bạn sở hữu tầng rung động năng lượng của con số 8 ở chỉ số Linh hồn. Điều đó thể hiện bạn là người có nội lực mạnh mẽ, tập trung, thực tế và công bằng. Bạn có những kế hoạch rõ ràng cho mình để có những bước phát triển trong tương lai những thường bạn sẽ kín đáo và ít chia sẻ điều đó ra ngoài.  <br>
   Bạn luôn hướng sự đam mê đến công việc và sự nghiệp nhất là những vấn đề liên quan kinh doanh hoặc chính trị. Bạn thường dành rất nhiều thời gian, tích cực làm việc, nó không chỉ là sự chăm chỉ đơn thuần mà đầy tính kỷ luật và và khát khao thành công.",
@@ -611,6 +668,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "9",
   content:"Bạn sở hữu nhân cách bên trong đầy tính nhân hậu, rộng lượng và đầy lòng vị tha bởi ảnh hưởng của rung động của số 9 nằm trong chỉ số Linh hồn, tuy nhiên điều đó không dễ dàng được bộc lộ ra bên ngoài. Bạn luôn có khao khát và lòng thúc đẩy muốn làm việc cống hiến cho cộng đồng./
   Bạn luôn hướng tới tình yêu, tình yêu của bạn nó rộng lớn, hướng nhân loại chứ không chỉ dừng ở việc tìm kiếm một chân ái trong cuộc đời. Sô 9 trong tâm hồn cũng dễ bị tổn thương nhưng bạn thường che giấu những tổn thương đó và bỏ qua lỗi lầm của người khác.",
@@ -619,6 +677,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "11",
   content:"",
   advise:"",
@@ -626,6 +685,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "22",
   content:"",
   advise:"",
@@ -633,6 +693,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số linh hồn",
   number: "33",
   content:"",
   advise:"",
@@ -643,6 +704,7 @@ numcontents_attributes = [
 #======================
 #====== fafe number
 {
+  subject:"Chỉ số sứ mệnh",
   number: "1",
   content: "Bạn sinh ra được mang một cái tên với rung động mạnh mẽ của con số 1 ở chỉ số Sứ mệnh, thể hiện bạn hoàn toàn làm chủ tình thế và cuộc đời của bạn, bởi tính độc lập rất cao, sự tự khẳng định mình và năng lực  của người lãnh đạo tuôn chảy trong bạn và thuộc về bạn như một lẽ tự nhiên vốn có vậy. <br>
   Khi vào tuổi trưởng thành, bạn thường sẽ là những người gây dựng được một sự nghiệp vững chắc, ổn định. Sứ mệnh của bạn là trở thành một nhà lãnh đạo tài ba, một thủ lĩnh, người tiên phong. Bạn đến với cuộc đời này để dẫn dắt và chinh phục khó khăn. Sứ mệnh của bạn là gây ấn tượng tốt cho mọi người xung quanh và chinh phục được đám đông. ",
@@ -651,6 +713,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "2",
   content: "Sứ mệnh 2 của bạn đến với cuộc đời này là để kiến tạo hòa bình, hạnh phúc, và mang bình yên đến cho mọi người. Bạn mang năng lượng rung động mạnh mẽ của tình yêu, của sự hy sinh cho đi và phục vụ. <br>
   Bạn mang năng lực của sự thấu hiểu và kết nối một cách mạnh mẽ với người khác. Bạn sẵn sàng mở lòng cho những người bạn mới cũng như sẵn lòng lắng nghe và  đón nhận những lời chia sẽ và tâm sự của mọi người.",
@@ -659,6 +722,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "3",
   content: "Khi bạn mang năng lượng sứ mệnh số 3 bạn đã sẵng sàng sở hữu  những năng lực tiếp thu kiên thức rất nhanh, giàu tri thức, và bạn sãn sàng bộc lộ và lan tỏa những giá trị bản thân tới những người xung quanh một cách dễ dàng.  <br>
   Bạn rất có năng khiếu sử dụng ngôn từ và hoạt động nghệ thuật bởi óc sáng tạo rất phong phú, ý tưởng vô cùng dồi dào. Phù hợp với những mảng công việc như nhà văn, diễn viên, hoạt động nghê thuật.",
@@ -667,6 +731,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "4",
   content: "ạn sinh ra với sứ mệnh tạo chỗ dựa vững chắc cho người thân, bạn coi trọng những giá trị truyền thống và với bạn gia đình là quan trọng nhất. Bạn thường chăm lo cho những người thân yêu một cách tốt nhất và với trách nhiệm cao nhất nên họ sẽ luôn cảm thấy yên ổn khi có bạn vũng trãi đứng bên. <br>
   Sứ mệnh của bạn được sắp đặt sẽ phát triển như một “bậc thầy xây dựng” trên con đường đạt được ước mơ, thành công và những mục tiêu dài hạn. Bởi năng lực sẵn có trong bạn là tính kỷ luật và sự kiên trì, chịu áp lực công việc rất lớn và kéo dài.",
@@ -675,6 +740,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "5",
   content:"Sứ mệnh số 5 của bạn là người mang năng lượng rất sáng tạo đổi mới và tràn đầy sức sống. Nên bạn là người đi cải cách, cải tiến, mở đường, cho những đột phá, tiên phong. Bạn luôn nghĩ ra những con đường mới và không chịu theo bất cứ lối mòn nào đã bước qua.  <br>
   Sứ mệnh của bạn được sắp đặt sẽ thúc đẩy được sự thay đổi thông qua hành động cụ thể mang tính cấp tiến. Năng lực tự nhiên của bạn là sự biến đổi và phi nguyên tắc, bạn không ngại thể hiện sự khác biệt ra ngoài, sự sáng tạo cứ thế được thể hiện thoải mái và tuôn chảy bởi nó hoàn toàn thuộc về bạn",
@@ -683,6 +749,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "6",
   content:"Khi mang năng lượng rung động Sứ mệnh 6 bạn có một năng lượng của tình yêu thương tràn trề, bền bỉ. Bạn có trái tim bao dung và sẵn sàng hi sinh vì người khác. Bạn rất khó từ chối lời đề nghị được giúp đỡ từ bất kỳ ai. <br>
   Số 6 giúp bạn có năng lực thẩm mỹ rất mạnh, bạn nên làm những nghề lên quan đến việc xây dựng vẻ đẹp bên ngoài và cả xây dựng những nét đẹp bên trong như việc tạo dựng lên những mái ấm hạnh phúc",
@@ -691,6 +758,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "7",
   content:"Con số Sứ mệnh 7 mang đến cho bạn rung động manh mẽ của năng lực đào sâu tri thức, điềm tĩnh và quan sát vấn đề ở mọi góc cạnh. Bạn rất tôn trọng tri thức và chỉ tin theo những gì mình đã biết rõ, nên bạn luôn có ý thức ngay từ lúc nhỏ là cần vun bồi tri thức. Bạn có thể được ví như “thư viện sống” bởi kiến thúc phong phú và nhiều đề tài mà bạn theo đuổi. <br>
   Sứ mệnh của bạn trong cuộc sống này là hãy tìm cho mình một triết lý sống, một tư tưởng, để sau đó bạn quan sát cuộc sống, chiêm nghiệm về nó, giải thích hiện tượng, đúc kết thành các quy luật chung của cuộc sống.",
@@ -699,6 +767,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "8",
   content:"Mang năng lượng rung của số 8 Sứ mệnh bạn có một năng lực làm việc và chịu áp lực công việc rất tốt. Bạn chăm chỉ, kiên trì và theo đuổi mục tiêu, luôn quyết tâm cao để đạt được những mục tiêu cuộc sống. <br>
   Số 8 cho bạn sở hữu khả năng quản lý, quản trị rất tốt đồng thời bạn cung có khả năng rất giỏi khi làm kinh doanh. Khi đã bắt đầu vào cuộc bạn luôn nhiệt tình và say mê với công việc, điều đó khiến con đường tới thành công của bạn chắc chắn tới và là kết quả tất yếu, bởi những năng lực trên thuộc về bạn một cách tự nhiên. <br>
@@ -708,6 +777,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "9",
   content:"Mang trong mình năng lượng số 9 sứ mệnh bạn như chứa sẵn sự thông minh, trí tuệ và ngập tràn tình yêu thương, nhân hậu và chân ái. Bạn luôn hướng tới sự giúp đỡ mọi người và thậm chí luôn tìm ra người để bạn có thể giúp. Bạn có năng lực cống hiến cho cộng đồng rất cao. <br>
   Sứ mệnh 9 cho bạn năng lực lãnh đạo và thu hút niềm tin tự nhiên của mọi người dành cho bạn, nên bạn cần nhất thiết phải học hỏi để thay đôi bản thân trở thành một tấm gương, một người có tâm và có tầm để càng giúp đỡ được nhiều người hơn nữa.",
@@ -716,6 +786,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "11",
   content:"",
   advise:"",
@@ -723,6 +794,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "22",
   content:"",
   advise:"",
@@ -730,6 +802,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số sứ mệnh",
   number: "33",
   content:"",
   advise:"",
@@ -741,6 +814,7 @@ numcontents_attributes = [
 #
 # grow up number
 {
+  subject:"Chỉ số trưởng thành",
   number: "1",
   content: "Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng làm thủ lĩnh, dám đứng lên tiên phong và dẫn dắt đội ngũ của mình.",
   advise:  "Hãy học cách lãnh đạo theo hướng thấu hiểu hơn để mọi người cảm thấy hài lòng và đặt niềm tin theo bạn.  <br>
@@ -749,6 +823,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "2",
   content: "Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng lắng nghe, đồng cảm, thấu hiểu và kết nối.",
   advise: "Học cách lắng nghe và đồng cảm để thấu hiểu người khác. <br>
@@ -758,6 +833,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "3",
   content: "Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng truyền đạt tri thức, ngôn từ và khả năng sáng tạo rất phong phú.",
   advise: "Tăng cường kết nối giao lưu với nhiều người để có nhiều mối quan hệ tốt đẹp. <br>
@@ -766,6 +842,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "4",
   content: "Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng tổ chức, lên kế hoạch và quản lý.",
   advise: "Sử dụng năng lực tổ chức, quản lý để có những kế hoạch tốt cho bản thân, gia đình, đội nhóm hoặc công ty của bạn. <br>
@@ -774,6 +851,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "5",
   content:"Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng sáng tạo vô bờ bến, sự mạnh dạn tìm tòi, dám trải nghiệm, dám bùng nổ.",
   advise:"Nên trải nghiệm thật nhiều để phát huy khả năng sáng tạo. <br>
@@ -782,6 +860,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "6",
   content:"Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng Phục vụ, quản trị con người bằng tình yêu thương, tâm tâm tỉ mỉ và bằng con mắt thẩm mĩ để phục vụ cho mọi người.",
   advise:"Trong mọi việc bạn làm cần để cái tâm vào, sử dụng tình yêu thương để quan tâm, chăm sóc người khác. <br>
@@ -790,6 +869,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "7",
   content:"Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng học hỏi không giới hạn, và khả năng đúc kết những trải nghiệm để ứng dụng cho cuộc sống.",
   advise:"Cần sử dụng thêm khả năng về trực giác của bản thân bởi giai đoạn này năng lực đó rất mạnh trong bạn. <br>
@@ -798,6 +878,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "8",
   content:"Những năng lực bạn cần chuẩn bị trước để khi vào tuổi trưởng thành bạn sẽ có cơ hội sử dụng chúng nhiều nhất đó chính là khả năng bao quát vấn đề, trở thành người quản trị, điều hành hoặc kinh doanh.",
   advise:"Cần học hỏi và tích lũy kinh nghiệm để phát huy khả năng điều hành, quản trị của bạn từ sớm.
@@ -806,6 +887,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "9",
   content:"Lãnh đạo, dẫn dắt làm gương <br>
   Thu hút bằng nhân tâm <br>
@@ -816,6 +898,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "11",
   content:"",
   advise:"",
@@ -823,6 +906,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "22",
   content:"",
   advise:"",
@@ -830,6 +914,7 @@ numcontents_attributes = [
   active: true
 },
 {
+  subject:"Chỉ số trưởng thành",
   number: "33",
   content:"",
   advise:"",
@@ -843,7 +928,8 @@ if NumContent.count == 0
   numcontents_attributes.each do |numcontent_attributes|
     numcontent = NumContent.new(numcontent_attributes)
     # user.skip_confirmation!
-    numcontent.save! if NumContent.where(number: numcontent_attributes[:number], category: numcontent_attributes[:category]).first.blank?
+    nusubject:"",mcontent.save! if NumContent.where(
+      number: numcontent_attributes[:number], category: numcontent_attributes[:category]).first.blank?
   end
 end
 

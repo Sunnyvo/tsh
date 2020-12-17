@@ -30,7 +30,7 @@ Trestle.resource(:numerologies) do
     # end
 
     column :name2, header: "Crush", align: :center
-    column :day_of_birth2, header: "Ngày sinh", align: :center
+    column :day_of_birth2, header: "Ngày sinh Crush", align: :center
     column :updated_at, header: "Cập nhật", align: :center
     column :created_at, header: "Ngày tạo", align: :center
 
@@ -52,7 +52,7 @@ Trestle.resource(:numerologies) do
       text_field :name, label: "Tên bạn"
       date_field :day_of_birth,  label: "Ngày sinh"
       text_field :name2,  label: "Crush"
-      date_field :day_of_birth2,  label: "Ngày sinh"
+      date_field :day_of_birth2,  label: "Ngày sinh crush"
       text_field :email, label: "Email"
       text_field :phone,  label: "Điện thoại"
       text_area :desire,  label: "Mong muốn"
