@@ -99,7 +99,7 @@ email_templates_attributes = [
   }
 ]
 
-if EmailTemplate.count != 0
+if EmailTemplate.count == 0
   email_templates_attributes.each do |email_template_attributes|
     email_template = EmailTemplate.new(email_template_attributes)
   email_template.save! if EmailTemplate.where(category: email_template_attributes[:category]).first.blank?
