@@ -371,7 +371,8 @@ class Numerology < ApplicationRecord
   end
 
   def current_future_number
-    return sum_characters(current_year_number[1].to_i + 1)
+    phone_val = phone.last(9).to_i
+    return sum_characters(phone_val)
   end
 
   def current_month_number
