@@ -571,9 +571,9 @@ def attach_pdf_demo
           :at => [255, 510],:align => :center]
       ],
       [
-        [:formatted_text_box,  [{ :text => get_content_num('DB_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_num('DB_NUM', birth_day_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
-        [:formatted_text_box,  [{ :text => get_advise_num('DB_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_advise_num('DB_NUM', birth_day_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
@@ -581,9 +581,9 @@ def attach_pdf_demo
           :at => [255, 510],:align => :center]
       ],
       [
-        [:formatted_text_box,  [{ :text => get_content_num('AT_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_num('AT_NUM', attitude_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
-        [:formatted_text_box,  [{ :text => get_advise_num('AT_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_advise_num('AT_NUM', attitude_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
@@ -591,9 +591,9 @@ def attach_pdf_demo
           :at => [255, 510],:align => :center]
       ],
       [
-        [:formatted_text_box,  [{ :text => get_content_num('PE_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_num('PE_NUM', personal_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
-        [:formatted_text_box,  [{ :text => get_advise_num('PE_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_advise_num('PE_NUM', personal_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
@@ -623,11 +623,11 @@ def attach_pdf_demo
         # [:line, [0, 200], [100, 150]],
       ],
       [
-        [:formatted_text_box,  [{ :text => get_content_num('LP_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_num('LP_NUM', life_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
-        [:formatted_text_box,  [{ :text => get_advise_num('LP_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_advise_num('LP_NUM', life_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
@@ -635,11 +635,11 @@ def attach_pdf_demo
           :at => [255, 510],:align => :center]
       ],
       [
-        [:formatted_text_box,  [{ :text => get_content_num('SP_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_num('SP_NUM', spirit_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
-        [:formatted_text_box,  [{ :text => get_advise_num('SP_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_advise_num('SP_NUM', spirit_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
@@ -647,11 +647,11 @@ def attach_pdf_demo
           :at => [255, 510],:align => :center]
       ],
       [
-        [:formatted_text_box,  [{ :text => get_content_num('FA_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_num('FA_NUM', fate_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
-        [:formatted_text_box,  [{ :text => get_advise_num('FA_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_advise_num('FA_NUM', fate_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
@@ -659,9 +659,9 @@ def attach_pdf_demo
           :at => [255, 510],:align => :center]
       ],
       [
-        [:formatted_text_box,  [{ :text => get_content_num('GR_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_content_num('GR_NUM', middle_age_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 680], :width => 500, :height => 250, :align => :justify, leading: 7],
-        [:formatted_text_box,  [{ :text => get_advise_num('GR_NUM'), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
+        [:formatted_text_box,  [{ :text => get_advise_num('GR_NUM', middle_age_number[1]), color: "FFFFFF", size: 14, font: Rails.root.join("app", "assets", "fonts", "iCielDiavlo-Book.ttf")},
           ], :at => [48, 358], :width => 500, :height => 250, :align => :justify, leading: 7],
       ],
       [
@@ -999,19 +999,19 @@ def attach_pdf_demo
   end
 
 # -- Get content and advise for day of birth
-  def get_content_num(ctgr)
+  def get_content_num(ctgr, number)
     puts ctgr
     doc = Nokogiri::HTML(NumContent.select("content")
-    .where(number: birth_day_number[1], category: ctgr)
+    .where(number: number, category: ctgr)
     .first.content)
     doc.search('br').each{|li| li.after "\n"}
     doc.content
   end
 
-  def get_advise_num(ctgr)
+  def get_advise_num(ctgr, number)
     puts ctgr
     doc = Nokogiri::HTML(NumContent.select("advise")
-    .where(number: birth_day_number[1], category: ctgr)
+    .where(number: number, category: ctgr)
     .first.advise)
     doc.search('br').each{|li| li.after "\n"}
     doc.content
