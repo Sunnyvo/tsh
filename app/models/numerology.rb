@@ -870,11 +870,11 @@ def attach_pdf_demo
       ], :at => [370, 311], :width => 170, :height => 100, :align => :right]
 
     # ngang
-    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png_optimized", :width => 400,
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang_optimized.png", :width => 400,
       :at => [100, 470]] if pytago_array[0] == 1
-    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png_optimized", :width => 400,
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang_optimized.png", :width => 400,
       :at => [100, 600]] if pytago_array[1] == 1
-    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang.png_optimized", :width => 400,
+    data << [:image, "#{Rails.root}/app/assets/images/arrow/a-ngang_optimized.png", :width => 400,
       :at => [100, 730]] if pytago_array[2] == 1
 
     data << [:image, "#{Rails.root}/app/assets/images/arrow/m-ngang_optimized.png", :width => 400,
